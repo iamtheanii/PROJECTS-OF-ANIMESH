@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 export default function HeroSlideshow() {
   const slides = [
     {
-      image: '/slideshow/1.jpeg', 
+      image: '/slideshow/4.jpeg',
       title: <>Crafting Moments That <br /> <span className="italic font-normal">Last a Lifetime</span></>,
       desc: 'From intimate traditional rituals in Baripada to grand milestone celebrations across the district, we handle every logistical detail so you can stay in the moment.'
     },
@@ -17,17 +17,7 @@ export default function HeroSlideshow() {
       image: '/slideshow/4.jpeg',
       title: <>Beautifully Curated <br /> <span className="italic font-normal">Cultural Rituals</span></>,
       desc: 'From vibrant Haldi ceremonies to sacred Tilak rituals, we bring absolute care, respect, and aesthetic perfection to your most important days.'
-    },
-    {
-      image: '/slideshow/2.jpg', 
-      title: <>Crafting Moments That <br /> <span className="italic font-normal">Last a Lifetime</span></>,
-      desc: 'From intimate traditional rituals in Baripada to grand milestone celebrations across the district, we handle every logistical detail so you can stay in the moment.'
-    },
-    {
-      image: '/slideshow/3.jpg',
-      title: <>Your Dream Wedding, <br /> <span className="italic font-normal">Flawlessly Executed</span></>,
-      desc: 'We transform your vision into reality, orchestrating magnificent celebrations with stunning decor that you and your guests will remember forever.'
-    },
+    }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
