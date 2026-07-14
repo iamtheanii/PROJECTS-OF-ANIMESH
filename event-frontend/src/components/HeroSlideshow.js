@@ -17,7 +17,7 @@ export default function HeroSlideshow() {
       image: '/slideshow/4.jpeg',
       title: <>Beautifully Curated <br /> <span className="italic font-normal">Cultural Rituals</span></>,
       desc: 'From vibrant Haldi ceremonies to sacred Tilak rituals, we bring absolute care, respect, and aesthetic perfection to your most important days.'
-    }
+    },
     {
       image: '/slideshow/2.jpeg', 
       title: <>Crafting Moments That <br /> <span className="italic font-normal">Last a Lifetime</span></>,
