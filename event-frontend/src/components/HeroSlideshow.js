@@ -50,16 +50,16 @@ export default function HeroSlideshow() {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-transparent" />
 
-      {/* The Text Content Container - Added pt-16 so it sits neatly under the navbar */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-6 pt-16">
+      {/* The Text Content Container - Increased top padding to clear the navbar */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center pt-24 md:pt-16">
         
-        {/* STATIC TAGLINE - Removed mt-24, using standard equal spacing now */}
-        <span className="text-[0.65rem] md:text-base uppercase tracking-[0.2em] text-slate-300 font-bold drop-shadow-md mb-6 md:mb-8 px-2">
+        {/* STATIC TAGLINE - Scaled down font slightly on mobile and added px-4 so it doesn't touch edges */}
+        <span className="text-[0.60rem] md:text-base uppercase tracking-[0.2em] text-slate-300 font-bold drop-shadow-md mb-6 md:mb-8 px-4">
           Welcome to the No.1 Event Planner of Mayurbhanj
         </span>
 
-        {/* DYNAMIC TEXT BOX - Reduced mobile height dramatically to 250px so everything fits */}
-        <div className="relative w-full max-w-4xl h-[250px] md:h-[260px] flex items-center justify-center">
+        {/* DYNAMIC TEXT BOX - Fine-tuned height for mobile to allow text to breathe */}
+        <div className="relative w-full max-w-4xl h-[220px] md:h-[260px] flex items-center justify-center">
           {slides.map((slide, index) => (
             <div 
               key={index} 
@@ -69,18 +69,20 @@ export default function HeroSlideshow() {
                   : 'opacity-0 translate-y-8 pointer-events-none'
               }`}
             >
-              <h1 className="text-4xl md:text-7xl font-serif font-light leading-tight drop-shadow-lg text-white mb-4 md:mb-6 w-full px-2">
+              {/* TITLE - Shrunk from 4xl to 3xl on mobile */}
+              <h1 className="text-3xl md:text-6xl lg:text-7xl font-serif font-light leading-tight drop-shadow-lg text-white mb-4 md:mb-6 w-full px-4">
                 {slide.title}
               </h1>
-              <p className="text-slate-300 max-w-xl mx-auto text-sm md:text-lg font-light leading-relaxed drop-shadow-md w-full px-2">
+              {/* DESCRIPTION - Shrunk to xs on mobile with extra side padding (px-8) */}
+              <p className="text-slate-300 max-w-xl mx-auto text-xs md:text-lg font-light leading-relaxed drop-shadow-md w-full px-8 md:px-2">
                 {slide.desc}
               </p>
             </div>
           ))}
         </div>
 
-        {/* STATIC BUTTON - Moved up closer to the text with tighter margins */}
-        <div className="mt-4 md:mt-12 z-20">
+        {/* STATIC BUTTON - Added a bit more space above it */}
+        <div className="mt-8 md:mt-12 z-20">
           <a href="/book" className="inline-block bg-white text-slate-900 text-xs md:text-sm uppercase tracking-widest font-semibold px-6 py-3 md:px-8 md:py-4 rounded-md hover:bg-slate-200 transition-colors shadow-xl">
             Start Planning
           </a>
