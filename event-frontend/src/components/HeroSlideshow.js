@@ -50,15 +50,15 @@ export default function HeroSlideshow() {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-transparent" />
 
-      {/* The Text Content Container - Reduced pt-24 down to pt-8 on mobile to center it beautifully */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center pt-8 md:pt-16">
+      {/* The Text Content Container - Added -mt-16 on mobile to pull everything up to the visual center */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center -mt-16 md:mt-0 md:pt-16">
         
-        {/* STATIC TAGLINE - Reduced bottom margin to mb-4 to tighten the visual gap */}
+        {/* STATIC TAGLINE */}
         <span className="text-[0.60rem] md:text-base uppercase tracking-[0.2em] text-slate-300 font-bold drop-shadow-md mb-4 md:mb-8 px-4">
           Welcome to the No.1 Event Planner of Mayurbhanj
         </span>
 
-        {/* DYNAMIC TEXT BOX - Retained the perfect 220px height for breathing room */}
+        {/* DYNAMIC TEXT BOX */}
         <div className="relative w-full max-w-4xl h-[220px] md:h-[260px] flex items-center justify-center">
           {slides.map((slide, index) => (
             <div 
@@ -79,7 +79,7 @@ export default function HeroSlideshow() {
           ))}
         </div>
 
-        {/* STATIC BUTTON - Pulled closer to the text with mt-4 */}
+        {/* STATIC BUTTON */}
         <div className="mt-4 md:mt-12 z-20">
           <a href="/book" className="inline-block bg-white text-slate-900 text-xs md:text-sm uppercase tracking-widest font-semibold px-6 py-3 md:px-8 md:py-4 rounded-md hover:bg-slate-200 transition-colors shadow-xl">
             Start Planning
