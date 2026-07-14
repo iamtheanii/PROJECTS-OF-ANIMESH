@@ -53,22 +53,22 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="w-full bg-slate-950">
+    <div className="w-full bg-[#FAFAFA]">
       
-      {/* HERO SECTION */}
+      {/* HERO SECTION - Keeps its cinematic layout */}
       <section className="relative w-full h-screen">
         <HeroSlideshow />
       </section>
 
-      {/* GALLERY SECTION */}
-      <section id="gallery" className="w-full py-24 px-4 md:px-12 bg-slate-950">
+      {/* GALLERY SECTION - Restored to the clean White Theme */}
+      <section id="gallery" className="w-full py-24 px-4 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           
           <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-4xl md:text-5xl font-serif text-white mb-6 drop-shadow-lg">
+            <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-6 drop-shadow-sm">
               Our Masterpieces
             </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base font-light leading-relaxed">
+            <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base font-light leading-relaxed">
               Explore our portfolio of meticulously crafted events. From intimate traditional gatherings in Baripada to grand celebrations across the district, we bring absolute aesthetic perfection to every moment.
             </p>
           </div>
@@ -77,7 +77,7 @@ export default function HomePage() {
             {portfolio.map((item) => (
               <div 
                 key={item.id} 
-                className={`relative group overflow-hidden rounded-xl bg-slate-900 ${item.span} h-[300px] md:h-[450px] shadow-2xl`}
+                className={`relative group overflow-hidden rounded-xl bg-gray-100 ${item.span} h-[300px] md:h-[450px] shadow-xl`}
               >
                 <img
                   src={item.image}
@@ -85,16 +85,17 @@ export default function HomePage() {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
                 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Dark gradient so the white text stays readable over the image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-0 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500 opacity-100 md:opacity-0 md:group-hover:opacity-100">
-                  <span className="text-[#D4AF37] text-xs font-bold tracking-[0.2em] uppercase mb-3">
+                  <span className="text-[#D4AF37] text-xs font-bold tracking-[0.2em] uppercase mb-3 drop-shadow-md">
                     {item.category}
                   </span>
-                  <h3 className="text-white text-2xl md:text-3xl font-serif font-light mb-2">
+                  <h3 className="text-white text-2xl md:text-3xl font-serif font-light mb-2 drop-shadow-md">
                     {item.title}
                   </h3>
-                  <p className="text-slate-300 text-sm font-light line-clamp-2 md:line-clamp-none">
+                  <p className="text-slate-200 text-sm font-light line-clamp-2 md:line-clamp-none drop-shadow-md">
                     {item.description}
                   </p>
                 </div>
