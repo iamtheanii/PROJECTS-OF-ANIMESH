@@ -45,6 +45,31 @@ export default function HomePage() {
       description: 'Transforming heritage venues with spectacular lighting and sheer drapery.',
       span: 'col-span-12 md:col-span-6', // Medium Half-Width Image
     },
+    // --- NEW IMAGES ADDED BELOW ---
+    {
+      id: 6,
+      image: '/slideshow/10.jpeg', // Replace with your actual image path
+      category: 'Catering & Dining',
+      title: 'A Feast to Remember',
+      description: 'Exquisite table settings and premium catering setups curated for your guests.',
+      span: 'col-span-12 md:col-span-8', // Large Wide Image
+    },
+    {
+      id: 7,
+      image: '/slideshow/11.jpeg', // Replace with your actual image path
+      category: 'Candid Moments',
+      title: 'The First Dance',
+      description: 'Capturing the magic under cinematic lighting and elegant decor.',
+      span: 'col-span-12 md:col-span-4', // Small Side Image
+    },
+    {
+      id: 8,
+      image: '/slideshow/12.jpeg', // Replace with your actual image path
+      category: 'Reception Decor',
+      title: 'A Night to Remember',
+      description: 'Elegant stage designs and premium seating arrangements to conclude the perfect day.',
+      span: 'col-span-12 md:col-span-12', // Massive Full-Width Feature Image
+    }
   ];
 
   return (
