@@ -1,5 +1,5 @@
 import './globals.css';
-import Navbar from '../components/Navbar'; // <-- Import your new Navbar here
+import Navbar from '../components/Navbar';
 
 export const metadata = {
   title: 'Shreeram Events & Wedding Planners',
@@ -9,7 +9,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-[#FAFAFA] text-slate-900 font-sans antialiased min-h-screen flex flex-col relative">
+      {/* ADDED overflow-x-hidden right here to kill the white gap */}
+      <body className="bg-[#FAFAFA] text-slate-900 font-sans antialiased min-h-screen flex flex-col relative overflow-x-hidden">
         
         {/* DECORATIVE SCREEN BORDER OVERLAY */}
         <div className="fixed inset-0 z-50 pointer-events-none border-[12px] md:border-[20px] border-white/20 mix-blend-overlay"></div>
@@ -20,15 +21,12 @@ export default function RootLayout({ children }) {
           <div className="absolute bottom-0 right-0 w-32 h-32 md:w-48 md:h-48 bg-[url('/corner-br.png')] bg-contain bg-no-repeat bg-right-bottom" />
         </div>
 
-        {/* INSERT THE NEW NAVBAR COMPONENT */}
         <Navbar />
 
-        {/* Dynamic Page Content */}
         <main className="flex-grow">
           {children}
         </main>
 
-        {/* Global Footer */}
         <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900 relative z-40">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-sm font-light">
