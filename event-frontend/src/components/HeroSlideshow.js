@@ -53,8 +53,8 @@ export default function HeroSlideshow() {
       {/* The Text Content Container */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-6">
         
-        {/* STATIC TAGLINE - Made text smaller on mobile and added mb-12 for extra mobile spacing */}
-        <span className="text-[0.65rem] md:text-base uppercase tracking-[0.2em] text-slate-300 font-bold drop-shadow-md mb-12 md:mb-8">
+       {/* STATIC TAGLINE - Added mt-24 for mobile to push it down, reduced mb-4 to prevent overlap */}
+       <span className="text-[0.65rem] md:text-base uppercase tracking-[0.2em] text-slate-300 font-bold drop-shadow-md mt-24 md:mt-0 mb-4 md:mb-8">
           Welcome to the No.1 Event Planner of Mayurbhanj
         </span>
 
