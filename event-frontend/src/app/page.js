@@ -6,7 +6,7 @@ export default function HomePage() {
   const portfolio = [
     {
       id: 1,
-      image: '/slideshow/1.jpeg',
+      image: '/slideshow/1.jpg',
       category: 'Wedding Ceremonies',
       title: 'Sacred Vows',
       description: 'Traditional Mandap decor with cascading florals and warm lighting.',
@@ -46,7 +46,7 @@ export default function HomePage() {
     },
     {
       id: 6,
-      image: '/slideshow/9.jpeg', // Make sure you have a 9.jpeg in your public folder!
+      image: '/slideshow/6.jpeg', // Make sure you have a 9.jpeg in your public folder!
       category: 'Reception',
       title: 'A Night to Remember',
       description: 'Elegant stage designs and premium seating arrangements for your guests.',
@@ -54,7 +54,7 @@ export default function HomePage() {
     },
     {
       id: 7,
-      image: '/slideshow/10.jpeg', // Make sure you have a 10.jpeg!
+      image: '/slideshow/7.jpeg', // Make sure you have a 10.jpeg!
       category: 'Catering & Dining',
       title: 'A Feast to Remember',
       description: 'Exquisite table settings and premium catering setups.',
@@ -62,7 +62,7 @@ export default function HomePage() {
     },
     {
       id: 8,
-      image: '/slideshow/11.jpeg', // Make sure you have an 11.jpeg!
+      image: '/slideshow/9.jpeg', // Make sure you have an 11.jpeg!
       category: 'Candid Moments',
       title: 'The First Dance',
       description: 'Capturing the magic under cinematic lighting.',
