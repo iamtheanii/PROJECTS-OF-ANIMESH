@@ -7,7 +7,7 @@ export default function HomePage() {
   const portfolio = [
     {
       id: 1,
-      image: '/slideshow/4.jpeg',
+      image: '/slideshow/1.jpg',
       category: 'Signature Weddings',
       title: 'The Royal Mandap',
       description: 'Bespoke floral arrangements and regal architectural elements designed for a picture-perfect ceremony.',
@@ -15,7 +15,7 @@ export default function HomePage() {
     },
     {
       id: 2,
-      image: '/slideshow/5.jpeg',
+      image: '/slideshow/8.jpeg',
       category: 'Pre-Wedding Rituals',
       title: 'Haldi Vibrance',
       description: 'A burst of marigolds and joyous energy for intimate family traditions.',
@@ -23,7 +23,7 @@ export default function HomePage() {
     },
     {
       id: 3,
-      image: '/slideshow/4.jpeg', // Replace with a new image later
+      image: '/slideshow/3.jpg', // Replace with a new image later
       category: 'Finer Details',
       title: 'Tablescape Elegance',
       description: 'Crystal centerpieces and gold-rimmed detailing for the evening reception.',
@@ -31,7 +31,7 @@ export default function HomePage() {
     },
     {
       id: 4,
-      image: '/slideshow/5.jpeg', // Replace with a new image later
+      image: '/slideshow/4.jpeg', // Replace with a new image later
       category: 'Grand Entrances',
       title: 'The Bride\'s Arrival',
       description: 'A breathtaking pathway lit by vintage chandeliers and exotic orchids.',
@@ -39,7 +39,7 @@ export default function HomePage() {
     },
     {
       id: 5,
-      image: '/slideshow/4.jpeg', // Replace with a new image later
+      image: '/slideshow/6.jpeg', // Replace with a new image later
       category: 'Venue Styling',
       title: 'Palace Illumination',
       description: 'Transforming heritage venues with spectacular lighting and sheer drapery.',
@@ -48,7 +48,7 @@ export default function HomePage() {
     // --- NEW IMAGES ADDED BELOW ---
     {
       id: 6,
-      image: '/slideshow/10.jpeg', // Replace with your actual image path
+      image: '/slideshow/7.jpeg', // Replace with your actual image path
       category: 'Catering & Dining',
       title: 'A Feast to Remember',
       description: 'Exquisite table settings and premium catering setups curated for your guests.',
@@ -56,7 +56,7 @@ export default function HomePage() {
     },
     {
       id: 7,
-      image: '/slideshow/11.jpeg', // Replace with your actual image path
+      image: '/slideshow/2.jpg', // Replace with your actual image path
       category: 'Candid Moments',
       title: 'The First Dance',
       description: 'Capturing the magic under cinematic lighting and elegant decor.',
@@ -64,7 +64,7 @@ export default function HomePage() {
     },
     {
       id: 8,
-      image: '/slideshow/12.jpeg', // Replace with your actual image path
+      image: '/slideshow/5.jpeg', // Replace with your actual image path
       category: 'Reception Decor',
       title: 'A Night to Remember',
       description: 'Elegant stage designs and premium seating arrangements to conclude the perfect day.',
