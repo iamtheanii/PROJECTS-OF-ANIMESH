@@ -58,7 +58,7 @@ export default function BookingPage() {
 
     // Prepare data for Web3Forms API
     const payload = {
-      access_key: "9b300fd5-9bb4-467b-a149-36ccfae8ee20", // <--- PASTE YOUR KEY HERE
+      access_key: "00799dea-5602-4248-ba2a-c025cf166a1b", // <--- PASTE YOUR KEY HERE
       subject: `New Booking Request from ${formData.name} - ${formData.eventType}`,
       from_name: "Shreeram Events Booking System",
       ...formData,
