@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "dynamic_social/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "dynamic_social/wsgi.py"
+      }
+    ]
+  }
