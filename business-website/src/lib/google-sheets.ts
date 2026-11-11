@@ -3,9 +3,42 @@ import { Booking, SyncLog } from "@/types";
 import fs from "fs";
 import path from "path";
 
-const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || "";
-const privateKeyRaw = process.env.GOOGLE_PRIVATE_KEY || "";
-const spreadsheetId = process.env.GOOGLE_SHEET_ID || "";
+const clientEmail =
+  process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL ||
+  "salon-bot@freelance-demo-514406.iam.gserviceaccount.com";
+const privateKeyRaw =
+  process.env.GOOGLE_PRIVATE_KEY ||
+  `-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDB8sHLP0wGzZPb
+1Mxvmv3rOXKHoY0laabYHZjPxLOKRwbKE5ss5io1XlGCkfW0NCl57vY96sGjSOvL
+fNmrDE5Z7Q5+m5DreVgwzOGP7zcgdCXnfwyAXkMqlvZ7bZbT6vsyljNyBtjn1rlo
+trhbEmceY+RcCZwaD6PIfttX59+M5kL2JZmwaxDPGS8aeLTvFRKBBPtcDIJCjmSy
+kX2jG+V5Qfdq/EV2O60XI2rVmWWsxDCtLV5maGs01Esy7e1PHTFyGid7LbrimhFk
+yqnS7HJZ6k0H/p2HVaVwtNTMKnqo+E8jQVsCzcfyFJ4Qm2NEcq5u1tz36lZ3LG4A
+fVoGxMGnAgMBAAECggEANJB4mX9EOavJ4RChf7YAD5p4Qe409OjXgUc0PUtQZa+u
+VWJO8jJHSkOPz9WDRB3HB/cN4eYYKQsAbRwfWk5xhcnL3eCHvGoczs0YbQwmYrNX
++o/icYAasBZOI1GmSTUsc59lvgfBDcSSZ6DuAjDQpdno8FDib+XBO/u1svNzERp1
+ZKCcdTv7HrL2mdEqdcGpgoN3x2rLw74qWaaXpZWXcXR9QjlXkQw/QbT69tbijyJN
+HiyB6pz63BZBS1lkRKvOwTQ3WQe8qWk6xdSYm6PJBXKhAdWD47pMH4nVo4DA5nTV
+LMxupsnow2bbEYY6ulkBOuTZb0jcqGZGXvpJiLqc0QKBgQD8AoRDHyCdsYfEjUQI
+LJl/dB5VAOPvAhvqdocLl2XRVuqOyuVFz7F28oigbud+RT/Yat+/L1qOAw5OhAbq
+TcFB0kol6lcD8KQiM+qXXWFA01HEZkVUN+Gp8IzrFVVgKfKfvFcZR8cNT8H6w+bg
+Nm714ztcLDHD9mnSczqtXvRUuwKBgQDFBOWNe4Vr9Pr8T7IBJdBcbGLTg1VEQwrg
+gqZfiYReWE3Mqy3U3iWp2XtVDgeVDKV2M7GsmlEJBdO+6mrWLj1Nfp7K+yHAhwxU
+RFd2GxVYTqaB8AGr4D3Dfq+43Ue1TQrhC4PKLFxC0OkSY1CDKWcWuFCUp5knOYws
+f2LHXLiuBQKBgQC3xWILzHQtapuWAmn9CAD7h4Li+947ma8fwEVkd4gBKz+q11xw
+Fy/TjLODQry/QOJ5AB6fvXlsm9/f87lTPVZTmHUHxyajMeWPJ4rHzImyCyfSb73Y
+11NRaKBqgckbchuCzoY5YjVOiL3tDtSa5jbuSkEsSvITc+rhU7QTX24PJwKBgAo9
+POjjeIWpz7l5MtkYbAHBqEkx1CaeDVyprZfdf8GfeTuf0dv0R6TSJrS+6+n1JExG
+V3+O7ZM4eE69xBupf4odgIcwEgr9eciPXLRIqA1U2RZ7sLqMBum4Fc3XwjhL7rrP
+bGP/djQKw3IvMyn95tupbJatNypwtTZC0JFn4jk5AoGAW0k5o3JASgYx04XDRn0e
+znidIsDc43b58lTCc+0PTG4TaiSYokBd1n7ycRlmIU/dSOtSbVlr/Z91VdXTr+Mj
+9eOt1aesXaqhhErqYOwc2LHsdKbUtSkHz72Jt5oYyNUu7GMx8R2rTttPpij1Zq0i
+L5ZB+uFMC5LcBUWciOj9pEI=
+-----END PRIVATE KEY-----`;
+const spreadsheetId =
+  process.env.GOOGLE_SHEET_ID ||
+  "1QkOd-ofWqMF-Orryj__EyHeIsKyPSQeJ7C3jmp8TYgA";
 
 export const SPREADSHEET_NAME = "ABDUL NAI — LIVE BOOKING & PAYMENT TRACKER";
 
