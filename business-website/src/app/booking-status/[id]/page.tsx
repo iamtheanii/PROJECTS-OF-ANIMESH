@@ -153,7 +153,7 @@ export default function BookingStatusPage() {
       const activeKey =
         orderData.key_id ||
         process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
-        "rzp_test_TysulHZEM5m3st";
+        "rzp_live_TyuQiKFbunEpjb";
 
       if (typeof window !== "undefined" && window.Razorpay && activeKey && !activeKey.includes("YourKeyIdHere")) {
         const options = {

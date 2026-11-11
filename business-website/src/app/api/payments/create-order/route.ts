@@ -93,7 +93,7 @@ export async function POST(req: Request) {
     const keyId =
       process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
       process.env.RAZORPAY_KEY_ID ||
-      "rzp_test_TysulHZEM5m3st";
+      "rzp_live_TyuQiKFbunEpjb";
 
     return NextResponse.json({
       success: true,

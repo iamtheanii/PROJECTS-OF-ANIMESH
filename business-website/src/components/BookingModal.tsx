@@ -264,7 +264,7 @@ export default function BookingModal({
       const activeKey =
         orderData.key_id ||
         process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
-        "rzp_test_TysulHZEM5m3st";
+        "rzp_live_TyuQiKFbunEpjb";
 
       // Check if official Razorpay checkout script is available
       if (typeof window !== "undefined" && window.Razorpay && activeKey && !activeKey.includes("YourKeyIdHere")) {

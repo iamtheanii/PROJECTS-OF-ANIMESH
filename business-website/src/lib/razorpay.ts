@@ -4,11 +4,14 @@ import crypto from "crypto";
 const key_id =
   process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
   process.env.RAZORPAY_KEY_ID ||
-  "rzp_test_TysulHZEM5m3st";
+  "rzp_live_TyuQiKFbunEpjb";
 const key_secret =
   process.env.RAZORPAY_KEY_SECRET ||
-  "OiUum134iAxY1LslOo8aatE5";
+  "nIonWHFeBRapbJ50CVbLoI1v";
 const webhook_secret = process.env.RAZORPAY_WEBHOOK_SECRET || "";
+
+export const RAZORPAY_KEY_ID = key_id;
+export const RAZORPAY_KEY_SECRET = key_secret;
 
 export const isRazorpayConfigured = Boolean(
   key_id &&
