@@ -134,11 +134,32 @@ export default function BookingStatusPage() {
         throw new Error(orderData.error || "Failed to initialize payment gateway.");
       }
 
-      if (typeof window !== "undefined" && window.Razorpay && orderData.key_id && !orderData.key_id.includes("YourKeyIdHere")) {
+      // Ensure Razorpay script is loaded
+      let razorpayAvailable = typeof window !== "undefined" && !!window.Razorpay;
+      if (!razorpayAvailable && typeof window !== "undefined") {
+        await new Promise<void>((resolve) => {
+          const script = document.createElement("script");
+          script.src = "https://checkout.razorpay.com/v1/checkout.js";
+          script.async = true;
+          script.onload = () => {
+            razorpayAvailable = true;
+            resolve();
+          };
+          script.onerror = () => resolve();
+          document.body.appendChild(script);
+        });
+      }
+
+      const activeKey =
+        orderData.key_id ||
+        process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
+        "rzp_test_TysulHZEM5m3st";
+
+      if (typeof window !== "undefined" && window.Razorpay && activeKey && !activeKey.includes("YourKeyIdHere")) {
         const options = {
-          key: orderData.key_id,
+          key: activeKey,
           amount: orderData.amount,
-          currency: orderData.currency,
+          currency: orderData.currency || "INR",
           name: "ABDUL NAI LUXURY UNISEX SALON",
           description: `Settlement for ${booking.service_name} (ID: ${booking.booking_id})`,
           order_id: orderData.order_id,
@@ -148,6 +169,12 @@ export default function BookingStatusPage() {
             email: booking.email || "client@abdulnai.com",
           },
           theme: { color: "#c7992a" },
+          modal: {
+            ondismiss: function () {
+              setSubmittingAction(false);
+              setActionMessage("Payment dismissed. You can retry settling your balance anytime.");
+            },
+          },
           handler: async function (response: any) {
             const verifyRes = await fetch("/api/payments/verify", {
               method: "POST",
@@ -172,6 +199,10 @@ export default function BookingStatusPage() {
           },
         };
         const rzp = new window.Razorpay(options);
+        rzp.on("payment.failed", function (resp: any) {
+          setSubmittingAction(false);
+          setError(resp.error?.description || "Payment failed. Please retry.");
+        });
         rzp.open();
       } else {
         // Test mode simulator

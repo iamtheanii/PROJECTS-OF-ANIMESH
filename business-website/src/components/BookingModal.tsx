@@ -205,20 +205,73 @@ export default function BookingModal({
       const orderRes = await fetch("/api/payments/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ booking_id: createdBooking.booking_id }),
+        body: JSON.stringify({
+          booking_id: createdBooking.booking_id,
+          amount_inr: createdBooking.service_price || selectedService.price,
+          customer_name: customerName,
+          phone: phone,
+          email: email,
+          service_name: selectedService.name,
+          appointment_date: selectedDate,
+          appointment_time: selectedSlot,
+        }),
       });
 
-      const orderData = await orderRes.json();
-      if (!orderRes.ok || !orderData.success) {
-        throw new Error(orderData.error || "Failed to create payment order.");
+      let orderData: any;
+      if (orderRes.ok) {
+        orderData = await orderRes.json();
+      }
+      if (!orderData || !orderData.success) {
+        // Fallback to standard /api/create-order endpoint
+        const stdRes = await fetch("/api/create-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            amount: Math.round((selectedService.price || 1200) * 100),
+            currency: "INR",
+            receipt: createdBooking.booking_id,
+            notes: {
+              booking_id: createdBooking.booking_id,
+              service: selectedService.name,
+              customer: customerName,
+              phone: phone,
+            },
+          }),
+        });
+        orderData = await stdRes.json();
       }
 
+      if (!orderData || !orderData.success) {
+        throw new Error(orderData?.error || "Failed to initialize Razorpay payment order.");
+      }
+
+      // Ensure Razorpay script is loaded
+      let razorpayAvailable = typeof window !== "undefined" && !!window.Razorpay;
+      if (!razorpayAvailable && typeof window !== "undefined") {
+        await new Promise<void>((resolve) => {
+          const script = document.createElement("script");
+          script.src = "https://checkout.razorpay.com/v1/checkout.js";
+          script.async = true;
+          script.onload = () => {
+            razorpayAvailable = true;
+            resolve();
+          };
+          script.onerror = () => resolve();
+          document.body.appendChild(script);
+        });
+      }
+
+      const activeKey =
+        orderData.key_id ||
+        process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
+        "rzp_test_TysulHZEM5m3st";
+
       // Check if official Razorpay checkout script is available
-      if (typeof window !== "undefined" && window.Razorpay && orderData.key_id && !orderData.key_id.includes("YourKeyIdHere")) {
+      if (typeof window !== "undefined" && window.Razorpay && activeKey && !activeKey.includes("YourKeyIdHere")) {
         const options = {
-          key: orderData.key_id,
+          key: activeKey,
           amount: orderData.amount,
-          currency: orderData.currency,
+          currency: orderData.currency || "INR",
           name: "ABDUL NAI LUXURY UNISEX SALON",
           description: `Appointment for ${selectedService.name}`,
           order_id: orderData.order_id,

@@ -1,7 +1,10 @@
 import Razorpay from "razorpay";
 import crypto from "crypto";
 
-const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "";
+const key_id =
+  process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
+  process.env.RAZORPAY_KEY_ID ||
+  "";
 const key_secret = process.env.RAZORPAY_KEY_SECRET || "";
 const webhook_secret = process.env.RAZORPAY_WEBHOOK_SECRET || "";
 
@@ -23,32 +26,45 @@ export const razorpayClient = isRazorpayConfigured
  * Creates an order on Razorpay servers
  */
 export async function createRazorpayOrder(options: {
-  amount: number; // in INR rupees
-  receipt: string; // Booking ID
+  amount: number; // in INR rupees or paise
+  receipt: string; // Booking ID or unique receipt
   notes?: Record<string, string>;
+  isPaise?: boolean;
 }): Promise<{
   id: string;
   amount: number;
   currency: string;
   receipt: string;
 }> {
-  // Convert INR to paise
-  const amountInPaise = Math.round(options.amount * 100);
+  // Convert INR to paise if not already in paise
+  const amountInPaise = options.isPaise
+    ? Math.round(options.amount)
+    : Math.round(options.amount * 100);
+
+  // Minimum amount constraint: 100 paise (₹1)
+  if (amountInPaise < 100) {
+    throw new Error("Amount must be at least 100 paise (₹1.00).");
+  }
 
   if (isRazorpayConfigured && razorpayClient) {
-    const order = await razorpayClient.orders.create({
-      amount: amountInPaise,
-      currency: "INR",
-      receipt: options.receipt,
-      notes: options.notes,
-    });
+    try {
+      const order = await razorpayClient.orders.create({
+        amount: amountInPaise,
+        currency: "INR",
+        receipt: options.receipt.slice(0, 40), // Razorpay receipt max 40 chars
+        notes: options.notes,
+      });
 
-    return {
-      id: order.id,
-      amount: order.amount as number,
-      currency: order.currency,
-      receipt: order.receipt || options.receipt,
-    };
+      return {
+        id: order.id,
+        amount: order.amount as number,
+        currency: order.currency,
+        receipt: (order.receipt as string) || options.receipt,
+      };
+    } catch (error: any) {
+      console.error("[Razorpay API Order Error]", error);
+      throw error;
+    }
   }
 
   // Resilient fallback for testing when credentials have not yet been added to .env
@@ -62,6 +78,7 @@ export async function createRazorpayOrder(options: {
 
 /**
  * Verifies Razorpay payment signature server-side
+ * Algorithm: HMAC-SHA256(order_id + "|" + payment_id, KEY_SECRET)
  */
 export function verifyRazorpaySignature(params: {
   order_id: string;

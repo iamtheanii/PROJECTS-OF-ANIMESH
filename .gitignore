@@ -27,3 +27,10 @@ Thumbs.db
 
 # local space-named directory
 Business Website/
+
+# large files & archives
+*.zip
+*.mp4
+*.tar.gz
+PulseSocial_Patched_Source/
+

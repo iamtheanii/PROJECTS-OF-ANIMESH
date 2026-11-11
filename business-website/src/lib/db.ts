@@ -15,7 +15,13 @@ import {
 } from "@/types";
 import { generateSecurityToken } from "./utils";
 
-const LOCAL_DB_PATH = path.join(process.cwd(), "salon_db.json");
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const BUNDLED_DB_PATH = path.join(process.cwd(), "salon_db.json");
+const LOCAL_DB_PATH = isServerless ? path.join("/tmp", "salon_db.json") : BUNDLED_DB_PATH;
+
+declare global {
+  var __salon_db_cache: LocalDatabase | undefined;
+}
 
 interface LocalDatabase {
   services: Service[];
@@ -105,44 +111,66 @@ const DEFAULT_SETTINGS: SalonSettings = {
 };
 
 function getLocalData(): LocalDatabase {
+  if (globalThis.__salon_db_cache) {
+    return globalThis.__salon_db_cache;
+  }
+
   try {
-    if (!fs.existsSync(LOCAL_DB_PATH)) {
-      const initial: LocalDatabase = {
-        services: DEFAULT_SERVICES,
-        bookings: [],
-        customers: [],
-        payments: [],
-        settings: DEFAULT_SETTINGS,
-      };
-      fs.writeFileSync(LOCAL_DB_PATH, JSON.stringify(initial, null, 2));
-      return initial;
-    }
-    const content = fs.readFileSync(LOCAL_DB_PATH, "utf-8");
-    const parsed = JSON.parse(content);
-    if (!parsed.services || parsed.services.length === 0) {
-      parsed.services = DEFAULT_SERVICES;
+    let rawContent = "";
+    if (fs.existsSync(LOCAL_DB_PATH)) {
+      rawContent = fs.readFileSync(LOCAL_DB_PATH, "utf-8");
+    } else if (fs.existsSync(BUNDLED_DB_PATH)) {
+      rawContent = fs.readFileSync(BUNDLED_DB_PATH, "utf-8");
       try {
-        fs.writeFileSync(LOCAL_DB_PATH, JSON.stringify(parsed, null, 2));
+        fs.writeFileSync(LOCAL_DB_PATH, rawContent);
       } catch {}
     }
-    return parsed;
-  } catch (err) {
-    console.error("Local database read error:", err);
-    return {
+
+    if (rawContent) {
+      const parsed = JSON.parse(rawContent);
+      if (!parsed.services || parsed.services.length === 0) {
+        parsed.services = DEFAULT_SERVICES;
+      }
+      globalThis.__salon_db_cache = parsed;
+      return parsed;
+    }
+
+    const initial: LocalDatabase = {
       services: DEFAULT_SERVICES,
       bookings: [],
       customers: [],
       payments: [],
       settings: DEFAULT_SETTINGS,
     };
+    try {
+      fs.writeFileSync(LOCAL_DB_PATH, JSON.stringify(initial, null, 2));
+    } catch {}
+    globalThis.__salon_db_cache = initial;
+    return initial;
+  } catch (err) {
+    console.error("Local database read error:", err);
+    const fallback: LocalDatabase = {
+      services: DEFAULT_SERVICES,
+      bookings: [],
+      customers: [],
+      payments: [],
+      settings: DEFAULT_SETTINGS,
+    };
+    globalThis.__salon_db_cache = fallback;
+    return fallback;
   }
 }
 
 function saveLocalData(data: LocalDatabase): void {
+  globalThis.__salon_db_cache = data;
   try {
     fs.writeFileSync(LOCAL_DB_PATH, JSON.stringify(data, null, 2));
   } catch (err) {
-    console.error("Local database save error:", err);
+    try {
+      fs.writeFileSync(path.join("/tmp", "salon_db.json"), JSON.stringify(data, null, 2));
+    } catch (e) {
+      console.error("Local database save error:", err);
+    }
   }
 }
 
