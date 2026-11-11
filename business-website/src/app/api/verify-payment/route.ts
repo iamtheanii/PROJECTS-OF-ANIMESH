@@ -71,6 +71,7 @@ export async function POST(req: Request) {
         const newRemaining = 0;
 
         updatedBooking = await updateBookingStatus(booking_id, {
+          status: "CONFIRMED",
           payment_status: "PAID",
           advance_amount: newAdvance,
           remaining_balance: newRemaining,

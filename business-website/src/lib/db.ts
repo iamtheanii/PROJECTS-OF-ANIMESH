@@ -224,87 +224,97 @@ export async function createService(newService: Omit<Service, "id">): Promise<Se
 }
 
 // ----------------- AVAILABILITY & SLOTS MANAGEMENT -----------------
-// RULE: An appointment slot is unavailable ONLY if an active booking exists
-// with status != 'CANCELLED' AND status != 'COMPLETED'.
-// When an appointment is COMPLETED or CANCELLED, the slot is automatically released!
+// RULE: An appointment slot is unavailable ONLY if an active booking exists:
+// - status == 'CONFIRMED' (with payment verified or Pay At Salon)
+// - OR a temporary lock: status == 'PENDING_PAYMENT' created within the last 15 minutes.
+// Expired, failed, or cancelled bookings NEVER block a slot!
 export async function checkSlotAvailability(date: string, time: string): Promise<boolean> {
-  if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from("bookings")
-      .select("id")
-      .eq("appointment_date", date)
-      .eq("appointment_time", time)
-      .neq("status", "CANCELLED")
-      .neq("status", "COMPLETED");
-
-    if (!error && data) {
-      return data.length === 0;
-    }
-  }
-
   const db = getLocalData();
-  const existing = db.bookings.find(
-    (b) =>
-      b.appointment_date === date &&
-      b.appointment_time === time &&
-      b.status !== "CANCELLED" &&
-      b.status !== "COMPLETED"
-  );
-  return !existing;
+  const now = Date.now();
+  const PENDING_TIMEOUT_MS = 15 * 60 * 1000; // 15 minutes temporary hold
+
+  const blocking = db.bookings.find((b) => {
+    if (b.appointment_date !== date || b.appointment_time !== time) return false;
+    if (b.status === "CANCELLED" || b.status === "COMPLETED") return false;
+
+    // Confirmed bookings permanently block the slot
+    if (b.status === "CONFIRMED") {
+      // If payment is ONLINE and still PENDING without verification for > 15 mins, it expired
+      if (b.payment_method === "ONLINE_RAZORPAY" && b.payment_status === "PENDING") {
+        const age = now - new Date(b.created_at).getTime();
+        return age < PENDING_TIMEOUT_MS;
+      }
+      return true;
+    }
+
+    // Pending payment bookings only block if recent (< 15 mins)
+    if (b.status === "PENDING") {
+      const age = now - new Date(b.created_at).getTime();
+      return age < PENDING_TIMEOUT_MS;
+    }
+
+    return false;
+  });
+
+  return !blocking;
 }
 
 export async function getBookedSlotsForDate(date: string): Promise<string[]> {
-  if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from("bookings")
-      .select("appointment_time")
-      .eq("appointment_date", date)
-      .neq("status", "CANCELLED")
-      .neq("status", "COMPLETED");
-
-    if (!error && data) {
-      return data.map((b) => b.appointment_time);
-    }
-  }
-
   const db = getLocalData();
+  const now = Date.now();
+  const PENDING_TIMEOUT_MS = 15 * 60 * 1000;
+
   return db.bookings
-    .filter(
-      (b) =>
-        b.appointment_date === date &&
-        b.status !== "CANCELLED" &&
-        b.status !== "COMPLETED"
-    )
+    .filter((b) => {
+      if (b.appointment_date !== date) return false;
+      if (b.status === "CANCELLED" || b.status === "COMPLETED") return false;
+
+      if (b.status === "CONFIRMED") {
+        if (b.payment_method === "ONLINE_RAZORPAY" && b.payment_status === "PENDING") {
+          const age = now - new Date(b.created_at).getTime();
+          return age < PENDING_TIMEOUT_MS;
+        }
+        return true;
+      }
+
+      if (b.status === "PENDING") {
+        const age = now - new Date(b.created_at).getTime();
+        return age < PENDING_TIMEOUT_MS;
+      }
+
+      return false;
+    })
     .map((b) => b.appointment_time);
 }
 
-// RULE: "Remember same booked customer cant book twice with same details."
-// Checks if customer with same phone already has an active (non-cancelled, non-completed) booking on that date!
+// RULE: Prevents genuine duplicate active bookings.
+// Abandoned/failed pending payments never block a customer from booking!
 export async function checkCustomerDuplicateBooking(phone: string, date: string): Promise<Booking | null> {
   const cleanPhone = phone.replace(/\D/g, "");
-
-  if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from("bookings")
-      .select("*")
-      .eq("phone", cleanPhone)
-      .eq("appointment_date", date)
-      .neq("status", "CANCELLED")
-      .neq("status", "COMPLETED");
-
-    if (!error && data && data.length > 0) {
-      return data[0];
-    }
-  }
-
   const db = getLocalData();
-  const existing = db.bookings.find(
-    (b) =>
-      b.phone.replace(/\D/g, "") === cleanPhone &&
-      b.appointment_date === date &&
-      b.status !== "CANCELLED" &&
-      b.status !== "COMPLETED"
-  );
+  const now = Date.now();
+  const PENDING_TIMEOUT_MS = 15 * 60 * 1000;
+
+  const existing = db.bookings.find((b) => {
+    if (b.phone.replace(/\D/g, "") !== cleanPhone || b.appointment_date !== date) return false;
+    if (b.status === "CANCELLED" || b.status === "COMPLETED") return false;
+
+    if (b.status === "CONFIRMED") {
+      if (b.payment_method === "ONLINE_RAZORPAY" && b.payment_status === "PENDING") {
+        const age = now - new Date(b.created_at).getTime();
+        return age < PENDING_TIMEOUT_MS;
+      }
+      return true;
+    }
+
+    if (b.status === "PENDING") {
+      const age = now - new Date(b.created_at).getTime();
+      return age < PENDING_TIMEOUT_MS;
+    }
+
+    return false;
+  });
+
   return existing || null;
 }
 

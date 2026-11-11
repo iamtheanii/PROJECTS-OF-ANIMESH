@@ -4,8 +4,10 @@ import crypto from "crypto";
 const key_id =
   process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
   process.env.RAZORPAY_KEY_ID ||
-  "";
-const key_secret = process.env.RAZORPAY_KEY_SECRET || "";
+  "rzp_test_TysulHZEM5m3st";
+const key_secret =
+  process.env.RAZORPAY_KEY_SECRET ||
+  "OiUum134iAxY1LslOo8aatE5";
 const webhook_secret = process.env.RAZORPAY_WEBHOOK_SECRET || "";
 
 export const isRazorpayConfigured = Boolean(
@@ -15,15 +17,13 @@ export const isRazorpayConfigured = Boolean(
   key_secret !== "YourRazorpaySecretHere"
 );
 
-export const razorpayClient = isRazorpayConfigured
-  ? new Razorpay({
-      key_id,
-      key_secret,
-    })
-  : null;
+export const razorpayClient = new Razorpay({
+  key_id,
+  key_secret,
+});
 
 /**
- * Creates an order on Razorpay servers
+ * Creates a real order on Razorpay servers
  */
 export async function createRazorpayOrder(options: {
   amount: number; // in INR rupees or paise
@@ -46,34 +46,24 @@ export async function createRazorpayOrder(options: {
     throw new Error("Amount must be at least 100 paise (₹1.00).");
   }
 
-  if (isRazorpayConfigured && razorpayClient) {
-    try {
-      const order = await razorpayClient.orders.create({
-        amount: amountInPaise,
-        currency: "INR",
-        receipt: options.receipt.slice(0, 40), // Razorpay receipt max 40 chars
-        notes: options.notes,
-      });
+  try {
+    const order = await razorpayClient.orders.create({
+      amount: amountInPaise,
+      currency: "INR",
+      receipt: options.receipt.slice(0, 40), // Razorpay receipt max 40 chars
+      notes: options.notes,
+    });
 
-      return {
-        id: order.id,
-        amount: order.amount as number,
-        currency: order.currency,
-        receipt: (order.receipt as string) || options.receipt,
-      };
-    } catch (error: any) {
-      console.error("[Razorpay API Order Error]", error);
-      throw error;
-    }
+    return {
+      id: order.id,
+      amount: order.amount as number,
+      currency: order.currency,
+      receipt: (order.receipt as string) || options.receipt,
+    };
+  } catch (error: any) {
+    console.error("[Razorpay API Order Error]", error);
+    throw new Error(error?.error?.description || error.message || "Failed to create Razorpay order.");
   }
-
-  // Resilient fallback for testing when credentials have not yet been added to .env
-  return {
-    id: `order_mock_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
-    amount: amountInPaise,
-    currency: "INR",
-    receipt: options.receipt,
-  };
 }
 
 /**

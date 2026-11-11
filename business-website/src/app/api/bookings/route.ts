@@ -94,14 +94,20 @@ export async function POST(req: Request) {
     const method = payment_method || "ONLINE_RAZORPAY";
     let initialPaymentStatus: any = "PENDING";
     let declaration: any = customer_payment_declaration || "NONE";
+    let initialBookingStatus: any = "PENDING";
 
     if (method === "PAY_AT_SALON") {
+      initialBookingStatus = "CONFIRMED";
       if (declaration === "PAYMENT_DONE") {
         initialPaymentStatus = "AWAITING_ADMIN_VERIFICATION";
       } else {
         initialPaymentStatus = "UNPAID";
         declaration = "PAYMENT_PENDING";
       }
+    } else {
+      // For ONLINE_RAZORPAY: Must remain PENDING until Razorpay signature is verified
+      initialBookingStatus = "PENDING";
+      initialPaymentStatus = "PENDING";
     }
 
     const totalAmount = Number(service_price);
@@ -126,7 +132,7 @@ export async function POST(req: Request) {
       appointment_date,
       appointment_time,
       instructions: instructions ? instructions.trim() : undefined,
-      status: "CONFIRMED",
+      status: initialBookingStatus,
       payment_status: initialPaymentStatus,
       payment_method: method,
       customer_payment_declaration: declaration,
@@ -134,26 +140,25 @@ export async function POST(req: Request) {
       google_sheet_synced: false,
     });
 
-    // 8. Google Sheets Synchronization (18 Columns)
+    // 8. Google Sheets Synchronization & WhatsApp Notifications
+    // Only send immediate confirmation for PAY_AT_SALON.
+    // For ONLINE_RAZORPAY, notifications and confirmed sheet rows are triggered when payment is verified!
     let sheetResult = { success: false, message: "" };
-    try {
-      sheetResult = await syncBookingToGoogleSheet(newBooking);
-    } catch (e: any) {
-      console.error("Non-blocking Google Sheets sync error:", e.message);
-    }
+    if (method === "PAY_AT_SALON") {
+      try {
+        sheetResult = await syncBookingToGoogleSheet(newBooking);
+      } catch (e: any) {
+        console.error("Non-blocking Google Sheets sync error:", e.message);
+      }
 
-    // 9. WhatsApp Notifications
-    try {
-      // Customer confirmation
-      await sendCustomerWhatsAppConfirmation(newBooking);
-
-      // Owner notification to 9437238055
-      const ownerEvent = method === "PAY_AT_SALON" && declaration === "PAYMENT_DONE"
-        ? "OFFLINE_PAYMENT_DECLARED"
-        : "NEW_BOOKING";
-      await sendOwnerWhatsAppNotification(ownerEvent, newBooking, `Customer booked via ${method}`);
-    } catch (e: any) {
-      console.error("Non-blocking WhatsApp alert error:", e.message);
+      try {
+        await sendCustomerWhatsAppConfirmation(newBooking);
+        const ownerEvent =
+          declaration === "PAYMENT_DONE" ? "OFFLINE_PAYMENT_DECLARED" : "NEW_BOOKING";
+        await sendOwnerWhatsAppNotification(ownerEvent, newBooking, `Customer booked via ${method}`);
+      } catch (e: any) {
+        console.error("Non-blocking WhatsApp alert error:", e.message);
+      }
     }
 
     return NextResponse.json(
