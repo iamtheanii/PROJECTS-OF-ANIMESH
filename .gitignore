@@ -24,3 +24,6 @@ yarn-error.log*
 # system
 .DS_Store
 Thumbs.db
+
+# local space-named directory
+Business Website/
