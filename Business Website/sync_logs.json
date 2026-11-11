@@ -1,0 +1,242 @@
+[
+  {
+    "id": "sync-1794337472899-8oze",
+    "booking_id": "AN-2026-7B08AY0J",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:32.899Z"
+  },
+  {
+    "id": "sync-1794337473107-dpkv",
+    "booking_id": "AN-2026-7B08AY0J",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:33.107Z"
+  },
+  {
+    "id": "sync-1794337473155-s2lw",
+    "booking_id": "AN-2026-7B7ECFNM",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:33.155Z"
+  },
+  {
+    "id": "sync-1794337473200-mii5",
+    "booking_id": "AN-2026-7B7ECFNM",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:33.200Z"
+  },
+  {
+    "id": "sync-1794337473233-dz9n",
+    "booking_id": "AN-2026-7B7ECFNM",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:33.233Z"
+  },
+  {
+    "id": "sync-1794337473285-snqa",
+    "booking_id": "AN-2026-7B7ECFNM",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:33.285Z"
+  },
+  {
+    "id": "sync-1794337473335-kudc",
+    "booking_id": "AN-2026-7BCHD06Q",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:33.335Z"
+  },
+  {
+    "id": "sync-1794337473380-d919",
+    "booking_id": "AN-2026-7BCHD06Q",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:33.380Z"
+  },
+  {
+    "id": "sync-1794337473435-znmy",
+    "booking_id": "AN-2026-7BCHD06Q",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:33.435Z"
+  },
+  {
+    "id": "sync-1794337473473-p28e",
+    "booking_id": "AN-2026-7B08AY0J",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:04:33.473Z"
+  },
+  {
+    "id": "sync-1794337659460-utok",
+    "booking_id": "AN-2026-BAYG57BQ",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:39.460Z"
+  },
+  {
+    "id": "sync-1794337659721-ontr",
+    "booking_id": "AN-2026-BAYG57BQ",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:39.721Z"
+  },
+  {
+    "id": "sync-1794337659760-pnug",
+    "booking_id": "AN-2026-BB6X5HTZ",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:39.760Z"
+  },
+  {
+    "id": "sync-1794337659805-7tic",
+    "booking_id": "AN-2026-BB6X5HTZ",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:39.805Z"
+  },
+  {
+    "id": "sync-1794337659832-n5zd",
+    "booking_id": "AN-2026-BB6X5HTZ",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:39.832Z"
+  },
+  {
+    "id": "sync-1794337659876-t74a",
+    "booking_id": "AN-2026-BB6X5HTZ",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:39.876Z"
+  },
+  {
+    "id": "sync-1794337659923-gj5e",
+    "booking_id": "AN-2026-BBBED85B",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:39.923Z"
+  },
+  {
+    "id": "sync-1794337659963-hcd2",
+    "booking_id": "AN-2026-BBBED85B",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:39.963Z"
+  },
+  {
+    "id": "sync-1794337660008-s0u7",
+    "booking_id": "AN-2026-BBBED85B",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:40.008Z"
+  },
+  {
+    "id": "sync-1794337660045-mruc",
+    "booking_id": "AN-2026-BAYG57BQ",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:07:40.045Z"
+  },
+  {
+    "id": "sync-1794337920606-40ok",
+    "booking_id": "AN-2026-GWGLSYWZ",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:12:00.606Z"
+  },
+  {
+    "id": "sync-1794337921049-u3no",
+    "booking_id": "AN-2026-GWGLSYWZ",
+    "action": "SYNC_LOCAL_QUEUE",
+    "status": "SUCCESS",
+    "details": "Simulated locally. Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, and GOOGLE_SHEET_ID in .env",
+    "timestamp": "2026-11-10T19:12:01.049Z"
+  },
+  {
+    "id": "sync-1794381736179",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "action": "APPEND_ROW",
+    "status": "SUCCESS",
+    "details": "Appended new row for AN-2026-JY3YX9P4",
+    "timestamp": "2026-11-11T07:22:16.179Z"
+  },
+  {
+    "id": "sync-1794382227804",
+    "booking_id": "AN-2026-UBRHZC9I",
+    "action": "APPEND_ROW",
+    "status": "SUCCESS",
+    "details": "Appended new row for AN-2026-UBRHZC9I",
+    "timestamp": "2026-11-11T07:30:27.804Z"
+  },
+  {
+    "id": "sync-1794382631999",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "action": "UPDATE_ROW",
+    "status": "SUCCESS",
+    "details": "Updated row 2 with status CONFIRMED / PAID",
+    "timestamp": "2026-11-11T07:37:11.999Z"
+  },
+  {
+    "id": "sync-1794382632062",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "action": "UPDATE_ROW",
+    "status": "SUCCESS",
+    "details": "Updated row 2 with status CONFIRMED / PAID",
+    "timestamp": "2026-11-11T07:37:12.062Z"
+  },
+  {
+    "id": "sync-1794382632078",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "action": "UPDATE_ROW",
+    "status": "SUCCESS",
+    "details": "Updated row 2 with status CONFIRMED / PAID",
+    "timestamp": "2026-11-11T07:37:12.078Z"
+  },
+  {
+    "id": "sync-1794382632107",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "action": "UPDATE_ROW",
+    "status": "SUCCESS",
+    "details": "Updated row 2 with status CONFIRMED / PAID",
+    "timestamp": "2026-11-11T07:37:12.107Z"
+  },
+  {
+    "id": "sync-1794382632149",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "action": "UPDATE_ROW",
+    "status": "SUCCESS",
+    "details": "Updated row 2 with status CONFIRMED / PAID",
+    "timestamp": "2026-11-11T07:37:12.149Z"
+  },
+  {
+    "id": "sync-1794382633211",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "action": "UPDATE_ROW",
+    "status": "SUCCESS",
+    "details": "Updated row 2 with status CONFIRMED / PAID",
+    "timestamp": "2026-11-11T07:37:13.211Z"
+  }
+]

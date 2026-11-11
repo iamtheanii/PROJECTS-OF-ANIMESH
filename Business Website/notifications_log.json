@@ -1,0 +1,421 @@
+[
+  {
+    "id": "notif-1794337472901-xdux",
+    "booking_id": "AN-2026-7B08AY0J",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9820112233",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-7B08AY0J_PENDING",
+    "message_content": "Hello Rahul Verma!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-7B08AY0J\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 11:00 AM\nTotal Amount: ₹1200\nPayment Status: UNPAID / PAY AT SALON\n\nPlease complete your payment at the salon.\n\nThank you for choosing Abdul Nai Salon!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:32.901Z"
+  },
+  {
+    "id": "notif-1794337472940-aqj2",
+    "booking_id": "AN-2026-7B08AY0J",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_NEW_BOOKING_AN-2026-7B08AY0J_PENDING_CONFIRMED",
+    "message_content": "💈 NEW APPOINTMENT CREATED\n\nCustomer: Rahul Verma\nMobile: 9820112233\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 11:00 AM\nBooking ID: AN-2026-7B08AY0J\nTotal Amount: ₹1200\nPayment Method: ONLINE_RAZORPAY\nPayment Status: PENDING\nNote: Customer booked via ONLINE_RAZORPAY",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:32.940Z"
+  },
+  {
+    "id": "notif-1794337473113-9gxy",
+    "booking_id": "AN-2026-7B08AY0J",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9820112233",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-7B08AY0J_PAID",
+    "message_content": "Hello Rahul Verma!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-7B08AY0J\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 11:00 AM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.113Z"
+  },
+  {
+    "id": "notif-1794337473120-z06o",
+    "booking_id": "AN-2026-7B08AY0J",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_PAYMENT_SUCCESS_AN-2026-7B08AY0J_PAID_CONFIRMED",
+    "message_content": "💰 ONLINE PAYMENT SUCCESSFUL\n\nCustomer: Rahul Verma\nMobile: 9820112233\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 11:00 AM\nBooking ID: AN-2026-7B08AY0J\nTotal Amount: ₹1200\nPayment Method: UPI_PHONEPE\nPayment Status: PAID\nNote: Payment verified via UPI_PHONEPE",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.120Z"
+  },
+  {
+    "id": "notif-1794337473161-csmy",
+    "booking_id": "AN-2026-7B7ECFNM",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9833445566",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-7B7ECFNM_UNPAID",
+    "message_content": "Hello Sneha Kapoor!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-7B7ECFNM\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 12:00 PM\nTotal Amount: ₹1200\nPayment Status: UNPAID / PAY AT SALON\n\nPlease complete your payment at the salon.\n\nThank you for choosing Abdul Nai Salon!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.161Z"
+  },
+  {
+    "id": "notif-1794337473167-i7ab",
+    "booking_id": "AN-2026-7B7ECFNM",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_NEW_BOOKING_AN-2026-7B7ECFNM_UNPAID_CONFIRMED",
+    "message_content": "💈 NEW APPOINTMENT CREATED\n\nCustomer: Sneha Kapoor\nMobile: 9833445566\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 12:00 PM\nBooking ID: AN-2026-7B7ECFNM\nTotal Amount: ₹1200\nPayment Method: PAY_AT_SALON\nPayment Status: UNPAID\nNote: Customer booked via PAY_AT_SALON",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.167Z"
+  },
+  {
+    "id": "notif-1794337473211-rl1m",
+    "booking_id": "AN-2026-7B7ECFNM",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_OFFLINE_PAYMENT_DECLARED_AN-2026-7B7ECFNM_AWAITING_ADMIN_VERIFICATION_CONFIRMED",
+    "message_content": "🔔 OFFLINE PAYMENT DECLARED BY CLIENT\n\nCustomer: Sneha Kapoor\nMobile: 9833445566\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 12:00 PM\nBooking ID: AN-2026-7B7ECFNM\nTotal Amount: ₹1200\nPayment Method: PAY_AT_SALON\nPayment Status: AWAITING_ADMIN_VERIFICATION\nNote: Client declares payment transferred/cash",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.211Z"
+  },
+  {
+    "id": "notif-1794337473290-iukc",
+    "booking_id": "AN-2026-7B7ECFNM",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9833445566",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-7B7ECFNM_PAID",
+    "message_content": "Hello Sneha Kapoor!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-7B7ECFNM\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 12:00 PM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.290Z"
+  },
+  {
+    "id": "notif-1794337473297-dgmr",
+    "booking_id": "AN-2026-7B7ECFNM",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_PAYMENT_SUCCESS_AN-2026-7B7ECFNM_PAID_CONFIRMED",
+    "message_content": "💰 ONLINE PAYMENT SUCCESSFUL\n\nCustomer: Sneha Kapoor\nMobile: 9833445566\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 12:00 PM\nBooking ID: AN-2026-7B7ECFNM\nTotal Amount: ₹1200\nPayment Method: RAZORPAY_GPAY\nPayment Status: PAID\nNote: Payment verified via RAZORPAY_GPAY",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.297Z"
+  },
+  {
+    "id": "notif-1794337473342-b0wz",
+    "booking_id": "AN-2026-7BCHD06Q",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9811223344",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-7BCHD06Q_AWAITING_ADMIN_VERIFICATION",
+    "message_content": "Hello Karan Johar!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-7BCHD06Q\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 01:00 PM\nTotal Amount: ₹1200\nPayment Status: AWAITING VERIFICATION\n\nPlease complete your payment at the salon.\n\nThank you for choosing Abdul Nai Salon!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.342Z"
+  },
+  {
+    "id": "notif-1794337473348-kqxf",
+    "booking_id": "AN-2026-7BCHD06Q",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_OFFLINE_PAYMENT_DECLARED_AN-2026-7BCHD06Q_AWAITING_ADMIN_VERIFICATION_CONFIRMED",
+    "message_content": "🔔 OFFLINE PAYMENT DECLARED BY CLIENT\n\nCustomer: Karan Johar\nMobile: 9811223344\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 01:00 PM\nBooking ID: AN-2026-7BCHD06Q\nTotal Amount: ₹1200\nPayment Method: PAY_AT_SALON\nPayment Status: AWAITING_ADMIN_VERIFICATION\nNote: Customer booked via PAY_AT_SALON",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.348Z"
+  },
+  {
+    "id": "notif-1794337473386-5i65",
+    "booking_id": "AN-2026-7BCHD06Q",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9811223344",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-7BCHD06Q_PAID",
+    "message_content": "Hello Karan Johar!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-7BCHD06Q\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 01:00 PM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.386Z"
+  },
+  {
+    "id": "notif-1794337473443-k7oi",
+    "booking_id": "AN-2026-7BCHD06Q",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_PAYMENT_SUCCESS_AN-2026-7BCHD06Q_PAID_CONFIRMED",
+    "message_content": "💰 ONLINE PAYMENT SUCCESSFUL\n\nCustomer: Karan Johar\nMobile: 9811223344\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 01:00 PM\nBooking ID: AN-2026-7BCHD06Q\nTotal Amount: ₹1200\nPayment Method: ONLINE_RAZORPAY\nPayment Status: PAID\nNote: Payment verified via Razorpay",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.443Z"
+  },
+  {
+    "id": "notif-1794337473478-a36r",
+    "booking_id": "AN-2026-7B08AY0J",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_SERVICE_COMPLETED_AN-2026-7B08AY0J_PAID_COMPLETED",
+    "message_content": "✨ SERVICE MARKED COMPLETED\n\nCustomer: Rahul Verma\nMobile: 9820112233\nService: The Royal Cut & Style\nDate: 2026-12-28\nTime: 11:00 AM\nBooking ID: AN-2026-7B08AY0J\nTotal Amount: ₹1200\nPayment Method: UPI_PHONEPE\nPayment Status: PAID\nNote: Slot released automatically",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:04:33.478Z"
+  },
+  {
+    "id": "notif-1794337659561-s0ud",
+    "booking_id": "AN-2026-BAYG57BQ",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9820112233",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-BAYG57BQ_PENDING",
+    "message_content": "Hello Rahul Verma!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-BAYG57BQ\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 11:00 AM\nTotal Amount: ₹1200\nPayment Status: UNPAID / PAY AT SALON\n\nPlease complete your payment at the salon.\n\nThank you for choosing Abdul Nai Salon!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.561Z"
+  },
+  {
+    "id": "notif-1794337659568-ylv1",
+    "booking_id": "AN-2026-BAYG57BQ",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_NEW_BOOKING_AN-2026-BAYG57BQ_PENDING_CONFIRMED",
+    "message_content": "💈 NEW APPOINTMENT CREATED\n\nCustomer: Rahul Verma\nMobile: 9820112233\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 11:00 AM\nBooking ID: AN-2026-BAYG57BQ\nTotal Amount: ₹1200\nPayment Method: ONLINE_RAZORPAY\nPayment Status: PENDING\nNote: Customer booked via ONLINE_RAZORPAY",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.568Z"
+  },
+  {
+    "id": "notif-1794337659726-uzhu",
+    "booking_id": "AN-2026-BAYG57BQ",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9820112233",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-BAYG57BQ_PAID",
+    "message_content": "Hello Rahul Verma!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-BAYG57BQ\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 11:00 AM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.726Z"
+  },
+  {
+    "id": "notif-1794337659733-fo8v",
+    "booking_id": "AN-2026-BAYG57BQ",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_PAYMENT_SUCCESS_AN-2026-BAYG57BQ_PAID_CONFIRMED",
+    "message_content": "💰 ONLINE PAYMENT SUCCESSFUL\n\nCustomer: Rahul Verma\nMobile: 9820112233\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 11:00 AM\nBooking ID: AN-2026-BAYG57BQ\nTotal Amount: ₹1200\nPayment Method: UPI_PHONEPE\nPayment Status: PAID\nNote: Payment verified via UPI_PHONEPE",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.733Z"
+  },
+  {
+    "id": "notif-1794337659765-0hzb",
+    "booking_id": "AN-2026-BB6X5HTZ",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9833445566",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-BB6X5HTZ_UNPAID",
+    "message_content": "Hello Sneha Kapoor!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-BB6X5HTZ\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 12:00 PM\nTotal Amount: ₹1200\nPayment Status: UNPAID / PAY AT SALON\n\nPlease complete your payment at the salon.\n\nThank you for choosing Abdul Nai Salon!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.765Z"
+  },
+  {
+    "id": "notif-1794337659771-2z3g",
+    "booking_id": "AN-2026-BB6X5HTZ",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_NEW_BOOKING_AN-2026-BB6X5HTZ_UNPAID_CONFIRMED",
+    "message_content": "💈 NEW APPOINTMENT CREATED\n\nCustomer: Sneha Kapoor\nMobile: 9833445566\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 12:00 PM\nBooking ID: AN-2026-BB6X5HTZ\nTotal Amount: ₹1200\nPayment Method: PAY_AT_SALON\nPayment Status: UNPAID\nNote: Customer booked via PAY_AT_SALON",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.771Z"
+  },
+  {
+    "id": "notif-1794337659811-ohq2",
+    "booking_id": "AN-2026-BB6X5HTZ",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_OFFLINE_PAYMENT_DECLARED_AN-2026-BB6X5HTZ_AWAITING_ADMIN_VERIFICATION_CONFIRMED",
+    "message_content": "🔔 OFFLINE PAYMENT DECLARED BY CLIENT\n\nCustomer: Sneha Kapoor\nMobile: 9833445566\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 12:00 PM\nBooking ID: AN-2026-BB6X5HTZ\nTotal Amount: ₹1200\nPayment Method: PAY_AT_SALON\nPayment Status: AWAITING_ADMIN_VERIFICATION\nNote: Client declares payment transferred/cash",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.811Z"
+  },
+  {
+    "id": "notif-1794337659881-bbtt",
+    "booking_id": "AN-2026-BB6X5HTZ",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9833445566",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-BB6X5HTZ_PAID",
+    "message_content": "Hello Sneha Kapoor!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-BB6X5HTZ\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 12:00 PM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.881Z"
+  },
+  {
+    "id": "notif-1794337659888-biio",
+    "booking_id": "AN-2026-BB6X5HTZ",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_PAYMENT_SUCCESS_AN-2026-BB6X5HTZ_PAID_CONFIRMED",
+    "message_content": "💰 ONLINE PAYMENT SUCCESSFUL\n\nCustomer: Sneha Kapoor\nMobile: 9833445566\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 12:00 PM\nBooking ID: AN-2026-BB6X5HTZ\nTotal Amount: ₹1200\nPayment Method: RAZORPAY_GPAY\nPayment Status: PAID\nNote: Payment verified via RAZORPAY_GPAY",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.888Z"
+  },
+  {
+    "id": "notif-1794337659928-1k8e",
+    "booking_id": "AN-2026-BBBED85B",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9811223344",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-BBBED85B_AWAITING_ADMIN_VERIFICATION",
+    "message_content": "Hello Karan Johar!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-BBBED85B\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 01:00 PM\nTotal Amount: ₹1200\nPayment Status: AWAITING VERIFICATION\n\nPlease complete your payment at the salon.\n\nThank you for choosing Abdul Nai Salon!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.928Z"
+  },
+  {
+    "id": "notif-1794337659934-df92",
+    "booking_id": "AN-2026-BBBED85B",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_OFFLINE_PAYMENT_DECLARED_AN-2026-BBBED85B_AWAITING_ADMIN_VERIFICATION_CONFIRMED",
+    "message_content": "🔔 OFFLINE PAYMENT DECLARED BY CLIENT\n\nCustomer: Karan Johar\nMobile: 9811223344\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 01:00 PM\nBooking ID: AN-2026-BBBED85B\nTotal Amount: ₹1200\nPayment Method: PAY_AT_SALON\nPayment Status: AWAITING_ADMIN_VERIFICATION\nNote: Customer booked via PAY_AT_SALON",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.935Z"
+  },
+  {
+    "id": "notif-1794337659967-vd0d",
+    "booking_id": "AN-2026-BBBED85B",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9811223344",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-BBBED85B_PAID",
+    "message_content": "Hello Karan Johar!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-BBBED85B\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 01:00 PM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:39.967Z"
+  },
+  {
+    "id": "notif-1794337660013-fn8c",
+    "booking_id": "AN-2026-BBBED85B",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_PAYMENT_FAILED_AN-2026-BBBED85B_FAILED_CONFIRMED",
+    "message_content": "⚠️ ONLINE PAYMENT FAILED\n\nCustomer: Karan Johar\nMobile: 9811223344\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 01:00 PM\nBooking ID: AN-2026-BBBED85B\nTotal Amount: ₹1200\nPayment Method: CASH\nPayment Status: FAILED\nNote: Invalid signature or card declined",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:40.013Z"
+  },
+  {
+    "id": "notif-1794337660050-diii",
+    "booking_id": "AN-2026-BAYG57BQ",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_SERVICE_COMPLETED_AN-2026-BAYG57BQ_PAID_COMPLETED",
+    "message_content": "✨ SERVICE MARKED COMPLETED\n\nCustomer: Rahul Verma\nMobile: 9820112233\nService: The Royal Cut & Style\nDate: 2026-12-23\nTime: 11:00 AM\nBooking ID: AN-2026-BAYG57BQ\nTotal Amount: ₹1200\nPayment Method: UPI_PHONEPE\nPayment Status: PAID\nNote: Slot released automatically",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:07:40.050Z"
+  },
+  {
+    "id": "notif-1794337920609-78fd",
+    "booking_id": "AN-2026-GWGLSYWZ",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "7008285305",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-GWGLSYWZ_PENDING",
+    "message_content": "Hello Byanjan!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-GWGLSYWZ\nService: The Royal Cut & Style\nDate: 2026-11-10\nTime: 10:00 AM\nTotal Amount: ₹1200\nPayment Status: UNPAID / PAY AT SALON\n\nPlease complete your payment at the salon.\n\nThank you for choosing Abdul Nai Salon!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:12:00.609Z"
+  },
+  {
+    "id": "notif-1794337920614-ukyv",
+    "booking_id": "AN-2026-GWGLSYWZ",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_NEW_BOOKING_AN-2026-GWGLSYWZ_PENDING_CONFIRMED",
+    "message_content": "💈 NEW APPOINTMENT CREATED\n\nCustomer: Byanjan\nMobile: 7008285305\nService: The Royal Cut & Style\nDate: 2026-11-10\nTime: 10:00 AM\nBooking ID: AN-2026-GWGLSYWZ\nTotal Amount: ₹1200\nPayment Method: ONLINE_RAZORPAY\nPayment Status: PENDING\nNote: Customer booked via ONLINE_RAZORPAY",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:12:00.614Z"
+  },
+  {
+    "id": "notif-1794337921098-araf",
+    "booking_id": "AN-2026-GWGLSYWZ",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "7008285305",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-GWGLSYWZ_PAID",
+    "message_content": "Hello Byanjan!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-GWGLSYWZ\nService: The Royal Cut & Style\nDate: 2026-11-10\nTime: 10:00 AM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:12:01.098Z"
+  },
+  {
+    "id": "notif-1794337921154-nkf2",
+    "booking_id": "AN-2026-GWGLSYWZ",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_PAYMENT_SUCCESS_AN-2026-GWGLSYWZ_PAID_CONFIRMED",
+    "message_content": "💰 ONLINE PAYMENT SUCCESSFUL\n\nCustomer: Byanjan\nMobile: 7008285305\nService: The Royal Cut & Style\nDate: 2026-11-10\nTime: 10:00 AM\nBooking ID: AN-2026-GWGLSYWZ\nTotal Amount: ₹1200\nPayment Method: UPI_SIMULATED\nPayment Status: PAID\nNote: Payment verified via UPI_SIMULATED",
+    "status": "LOGGED_SIMULATED",
+    "timestamp": "2026-11-10T19:12:01.154Z"
+  },
+  {
+    "id": "notif-1794381737229-gfts",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9437238055",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-JY3YX9P4_AWAITING_ADMIN_VERIFICATION",
+    "message_content": "Hello Animesh Ghosh!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-JY3YX9P4\nService: The Royal Cut & Style\nDate: 2026-12-30\nTime: 03:00 PM\nTotal Amount: ₹1200\nPayment Status: AWAITING VERIFICATION\n\nPlease complete your payment at the salon.\n\nThank you for choosing Abdul Nai Salon!",
+    "status": "FAILED",
+    "timestamp": "2026-11-11T07:22:17.229Z",
+    "error": "{\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"A_NHPIgIGJNWB4jKj1DBHV3\"}}"
+  },
+  {
+    "id": "notif-1794381737557-n8on",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_OFFLINE_PAYMENT_DECLARED_AN-2026-JY3YX9P4_AWAITING_ADMIN_VERIFICATION_CONFIRMED",
+    "message_content": "🔔 OFFLINE PAYMENT DECLARED BY CLIENT\n\nCustomer: Animesh Ghosh\nMobile: 9437238055\nService: The Royal Cut & Style\nDate: 2026-12-30\nTime: 03:00 PM\nBooking ID: AN-2026-JY3YX9P4\nTotal Amount: ₹1200\nPayment Method: PAY_AT_SALON\nPayment Status: AWAITING_ADMIN_VERIFICATION\nNote: Customer booked via PAY_AT_SALON",
+    "status": "FAILED",
+    "timestamp": "2026-11-11T07:22:17.557Z",
+    "error": "{\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"A_xtiJ4pIC7yhlhSFsRVLWG\"}}"
+  },
+  {
+    "id": "notif-1794382229250-re2p",
+    "booking_id": "AN-2026-UBRHZC9I",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9437238055",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-UBRHZC9I_PENDING",
+    "message_content": "Hello Animesh!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-UBRHZC9I\nService: Signature Beard Sculpting & Steam\nDate: 2026-11-11\nTime: 09:00 AM\nTotal Amount: ₹800\nPayment Status: UNPAID / PAY AT SALON\n\nPlease complete your payment at the salon.\n\nThank you for choosing Abdul Nai Salon!",
+    "status": "FAILED",
+    "timestamp": "2026-11-11T07:30:29.251Z",
+    "error": "{\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"A_slg7HoepdhJj4C-5qd1az\"}}"
+  },
+  {
+    "id": "notif-1794382230479-ehig",
+    "booking_id": "AN-2026-UBRHZC9I",
+    "recipient_type": "OWNER",
+    "recipient_phone": "9437238055",
+    "event_type": "OWNER_NEW_BOOKING_AN-2026-UBRHZC9I_PENDING_CONFIRMED",
+    "message_content": "💈 NEW APPOINTMENT CREATED\n\nCustomer: Animesh\nMobile: 9437238055\nService: Signature Beard Sculpting & Steam\nDate: 2026-11-11\nTime: 09:00 AM\nBooking ID: AN-2026-UBRHZC9I\nTotal Amount: ₹800\nPayment Method: ONLINE_RAZORPAY\nPayment Status: PENDING\nNote: Customer booked via ONLINE_RAZORPAY",
+    "status": "FAILED",
+    "timestamp": "2026-11-11T07:30:30.479Z",
+    "error": "{\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"A3nznd89L1uHS07t_y18uwn\"}}"
+  },
+  {
+    "id": "notif-1794382632408-6c4i",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9437238055",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-JY3YX9P4_PAID",
+    "message_content": "Hello Animesh Ghosh!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-JY3YX9P4\nService: The Royal Cut & Style\nDate: 2026-12-30\nTime: 03:00 PM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "FAILED",
+    "timestamp": "2026-11-11T07:37:12.408Z",
+    "error": "{\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AF-sGRjKUjrmLXvYII506xs\"}}"
+  },
+  {
+    "id": "notif-1794382632458-0m2o",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9437238055",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-JY3YX9P4_PAID",
+    "message_content": "Hello Animesh Ghosh!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-JY3YX9P4\nService: The Royal Cut & Style\nDate: 2026-12-30\nTime: 03:00 PM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "FAILED",
+    "timestamp": "2026-11-11T07:37:12.458Z",
+    "error": "{\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"A8fslY_nmPhaQuEZ8S3mX0D\"}}"
+  },
+  {
+    "id": "notif-1794382632504-al40",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9437238055",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-JY3YX9P4_PAID",
+    "message_content": "Hello Animesh Ghosh!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-JY3YX9P4\nService: The Royal Cut & Style\nDate: 2026-12-30\nTime: 03:00 PM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "FAILED",
+    "timestamp": "2026-11-11T07:37:12.504Z",
+    "error": "{\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"A08KePaEBfhZi1jZtMLQEog\"}}"
+  },
+  {
+    "id": "notif-1794382632529-yxfg",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9437238055",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-JY3YX9P4_PAID",
+    "message_content": "Hello Animesh Ghosh!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-JY3YX9P4\nService: The Royal Cut & Style\nDate: 2026-12-30\nTime: 03:00 PM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "FAILED",
+    "timestamp": "2026-11-11T07:37:12.529Z",
+    "error": "{\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"A2zToYtjabhMJ6NnuwjiXkt\"}}"
+  },
+  {
+    "id": "notif-1794382632553-fqbh",
+    "booking_id": "AN-2026-JY3YX9P4",
+    "recipient_type": "CUSTOMER",
+    "recipient_phone": "9437238055",
+    "event_type": "CUSTOMER_BOOKING_AN-2026-JY3YX9P4_PAID",
+    "message_content": "Hello Animesh Ghosh!\n\nYour appointment at ABDUL NAI SALON has been successfully booked.\n\nBooking ID: AN-2026-JY3YX9P4\nService: The Royal Cut & Style\nDate: 2026-12-30\nTime: 03:00 PM\nTotal Amount: ₹1200\nPayment Status: PAID\n\nThank you for choosing Abdul Nai Salon.\n\nWe look forward to serving you!",
+    "status": "FAILED",
+    "timestamp": "2026-11-11T07:37:12.553Z",
+    "error": "{\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AV_u2PgV4nXm9lnlAAiz094\"}}"
+  }
+]

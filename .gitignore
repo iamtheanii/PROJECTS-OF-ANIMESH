@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+
+# environment & credentials
+.env
+.env*.local
+*.pem
+*.key
+freelance-demo-*.json
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# system
+.DS_Store
+Thumbs.db
