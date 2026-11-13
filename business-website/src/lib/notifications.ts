@@ -2,9 +2,15 @@ import { Booking, NotificationLog } from "@/types";
 import fs from "fs";
 import path from "path";
 
-const whatsappToken = process.env.WHATSAPP_API_TOKEN || "";
-const whatsappPhoneId = process.env.WHATSAPP_PHONE_NUMBER_ID || "";
-export const OWNER_PHONE = process.env.SALON_OWNER_PHONE || "9437238055";
+const whatsappToken =
+  process.env.WHATSAPP_API_TOKEN ||
+  "EAGdUeZCZCWWSsBS4F7qOZAwAHuEZAtlusXEmYSLaw5sNbbJEHtHEBhlKpjsGOJTbZCLzAa5eQTf4tyKwZAdFNVZAsszcx691gEZCauTWujXB0mCZCZBoveJ5Twz27XXgysY7bJDSVVhZBUu2ETWTJRHi7y12QcktfEmdVPNs9kiXaG0FS9CAxXL1aopRWDGQVtu56CTmdZABW4S2q0rkU9iUwdrjOqO9y9V4bkUSdCErFw6VrMp18yGQjFa089IxwLgp8JK9XRoAv6tjKH5RN7AgZAaWN5wZDZD";
+const whatsappPhoneId =
+  process.env.WHATSAPP_PHONE_NUMBER_ID ||
+  "1495478053640980";
+export const OWNER_PHONE =
+  process.env.SALON_OWNER_PHONE ||
+  "9437238055";
 
 export const isWhatsAppConfigured = Boolean(
   whatsappToken && 
