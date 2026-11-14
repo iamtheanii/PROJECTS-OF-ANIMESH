@@ -393,10 +393,10 @@ export const YOUTUBE_SHORTS = [
 
 export const FEATURED_CLIENT_PROJECTS = [
   {
-    id: "abulnai",
+    id: "abdulnai",
     title: "ABDUL NAI — Haute Coiffure & Luxury Grooming",
     tagline: "Full-Stack Salon Booking, Razorpay Payments & Google Sheets Automation",
-    liveUrl: "https://abulnai.vercel.app",
+    liveUrl: "https://abdulnai.vercel.app",
     clientType: "Luxury Salon & Spa Atelier",
     description: "A production-grade web application engineered for Mumbai's high-end grooming atelier. Features real-time slot booking with double-reservation protection, automated Razorpay UPI/Card payments, instant WhatsApp confirmation messages, and bi-directional Google Sheets client logging.",
     techStack: ["Next.js 14", "Tailwind CSS", "Supabase", "Razorpay Gateway", "Google Sheets API", "WhatsApp Notification API", "Vercel Edge"],

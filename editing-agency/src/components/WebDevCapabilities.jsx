@@ -41,7 +41,7 @@ export default function WebDevCapabilities() {
           </p>
         </div>
 
-        {/* 🌟 LIVE CLIENT REFERENCE: abulnai.vercel.app (CLEAN, NO OVERLOAD) 🌟 */}
+        {/* 🌟 LIVE CLIENT REFERENCE: abdulnai.vercel.app (CLEAN, NO OVERLOAD) 🌟 */}
         <div className="max-w-5xl mx-auto mb-16">
           <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-amber-500/30 via-white/10 to-brand-cyan/30">
             <div className="rounded-[15px] bg-[#0c0d12] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -90,13 +90,13 @@ export default function WebDevCapabilities() {
               {/* Right Action: Clean Reference CTA Pill */}
               <div className="flex flex-col sm:flex-row md:flex-col items-center gap-3 shrink-0 w-full md:w-auto">
                 <a
-                  href="https://abulnai.vercel.app"
+                  href="https://abdulnai.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-black font-display font-bold text-xs hover:bg-brand-cyan transition-all shadow-glow-card"
                 >
                   <Globe className="w-3.5 h-3.5" />
-                  <span>Visit abulnai.vercel.app</span>
+                  <span>Visit abdulnai.vercel.app</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
 
