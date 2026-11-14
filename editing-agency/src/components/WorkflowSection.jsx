@@ -150,10 +150,18 @@ export default function WorkflowSection() {
                       </p>
                     </div>
 
-                    {/* Phase Footer */}
+                    {/* Phase Footer & Pipeline Status */}
                     <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-500">
-                      <span>Phase {idx + 1} of 4</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan/40 group-hover:bg-brand-cyan group-hover:scale-150 transition-all" />
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan" />
+                        Stage {idx + 1} of 4
+                      </span>
+                      <span className="text-[10px] text-brand-cyan/70 font-semibold uppercase tracking-wider group-hover:text-brand-cyan">
+                        {idx === 0 && "Inception"}
+                        {idx === 1 && "Cadence"}
+                        {idx === 2 && "Finishing"}
+                        {idx === 3 && "Retention"}
+                      </span>
                     </div>
                   </div>
                 );
