@@ -78,6 +78,24 @@ export default function BookingModal({
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [confirmedBooking, setConfirmedBooking] = useState<Booking | null>(null);
 
+  // Restore confirmed booking from localStorage if client refreshed after booking
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("abdul_recent_booking");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.booking_id) {
+          setConfirmedBooking(parsed);
+          if (!initialSelectedService) {
+            setStep(5);
+          }
+        }
+      }
+    } catch (e) {
+      console.error("Error reading saved booking from localStorage", e);
+    }
+  }, [isOpen, initialSelectedService]);
+
   useEffect(() => {
     if (initialSelectedService) {
       setSelectedService(initialSelectedService);
@@ -86,6 +104,34 @@ export default function BookingModal({
       setSelectedService(services[0]);
     }
   }, [initialSelectedService, services]);
+
+  const markBookingConfirmed = (booking: Booking) => {
+    setConfirmedBooking(booking);
+    setStep(5);
+    try {
+      localStorage.setItem("abdul_recent_booking", JSON.stringify(booking));
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("abdul_booking_submitted", { detail: booking }));
+      }
+    } catch (e) {
+      console.error("Failed to cache booking in localStorage", e);
+    }
+    triggerConfetti();
+  };
+
+  const handleBookAgain = () => {
+    try {
+      localStorage.removeItem("abdul_recent_booking");
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new Event("abdul_booking_cleared"));
+      }
+    } catch {}
+    setConfirmedBooking(null);
+    setSelectedSlot("");
+    setInstructions("");
+    setErrorMessage("");
+    setStep(1);
+  };
 
   // Fetch booked slots whenever selectedDate changes
   useEffect(() => {
@@ -194,9 +240,7 @@ export default function BookingModal({
 
       // OPTION B: PAY AT SALON (OFFLINE)
       if (paymentMethod === "PAY_AT_SALON") {
-        setConfirmedBooking(createdBooking);
-        setStep(5);
-        triggerConfetti();
+        markBookingConfirmed(createdBooking);
         setSubmitting(false);
         return;
       }
@@ -303,9 +347,7 @@ export default function BookingModal({
 
               const verifyData = await verifyRes.json();
               if (verifyRes.ok && verifyData.success) {
-                setConfirmedBooking(verifyData.booking);
-                setStep(5);
-                triggerConfetti();
+                markBookingConfirmed(verifyData.booking);
               } else {
                 throw new Error(verifyData.error || "Payment signature verification failed.");
               }
@@ -342,9 +384,7 @@ export default function BookingModal({
 
         const verifyData = await verifyRes.json();
         if (verifyData.success) {
-          setConfirmedBooking(verifyData.booking);
-          setStep(5);
-          triggerConfetti();
+          markBookingConfirmed(verifyData.booking);
         } else {
           throw new Error(verifyData.error || "Payment verification failed.");
         }
@@ -778,13 +818,13 @@ export default function BookingModal({
 
               <div>
                 <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold block mb-1">
-                  Appointment Confirmed
+                  ✓ Your Booking Has Been Submitted
                 </span>
                 <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-salon-ivory mb-2">
                   WE LOOK FORWARD TO WELCOMING YOU
                 </h3>
                 <p className="text-xs text-neutral-400">
-                  A WhatsApp confirmation has been dispatched to <strong>{confirmedBooking.phone}</strong>.
+                  A WhatsApp confirmation notification has been dispatched to <strong>{confirmedBooking.phone}</strong>.
                 </p>
               </div>
 
@@ -797,6 +837,16 @@ export default function BookingModal({
                   <span className="font-mono text-sm font-bold text-gold-400">
                     {confirmedBooking.booking_id}
                   </span>
+                </div>
+
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-neutral-400">Client Name:</span>
+                  <span className="text-salon-ivory font-medium">{confirmedBooking.customer_name}</span>
+                </div>
+
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-neutral-400">Contact Number:</span>
+                  <span className="text-salon-ivory font-medium">{confirmedBooking.phone}</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs">
@@ -838,10 +888,20 @@ export default function BookingModal({
                 </div>
               </div>
 
-              <div className="flex justify-center gap-3">
+              {/* Actions: Allow booking again or close */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                 <button
+                  type="button"
+                  onClick={handleBookAgain}
+                  className="w-full sm:w-auto gold-gradient-bg text-black font-semibold text-xs uppercase tracking-widest px-6 py-3 rounded shadow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
+                >
+                  <Scissors className="w-3.5 h-3.5" />
+                  <span>Want to Submit or Book Again?</span>
+                </button>
+                <button
+                  type="button"
                   onClick={onClose}
-                  className="gold-gradient-bg text-black font-semibold text-xs uppercase tracking-widest px-8 py-3 rounded shadow hover:scale-[1.02] active:scale-95 transition-all"
+                  className="w-full sm:w-auto text-xs uppercase tracking-wider text-neutral-400 hover:text-white px-6 py-3 rounded border border-neutral-800 hover:border-neutral-700 transition-colors"
                 >
                   Close & Done
                 </button>

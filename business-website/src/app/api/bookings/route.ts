@@ -65,13 +65,13 @@ export async function POST(req: Request) {
     }
     const cleanPhone = phoneValidation.formatted;
 
-    // 3. Rule: "Remember same booked customer cant book twice with same details."
-    const existingActiveBooking = await checkCustomerDuplicateBooking(cleanPhone, appointment_date);
+    // 3. Rule: Prevent same customer from booking the exact same slot twice, while allowing booking again for another slot
+    const existingActiveBooking = await checkCustomerDuplicateBooking(cleanPhone, appointment_date, appointment_time);
     if (existingActiveBooking) {
       return NextResponse.json(
         {
           success: false,
-          error: `You already have an active appointment (Booking ID: ${existingActiveBooking.booking_id}) scheduled on ${appointment_date} at ${existingActiveBooking.appointment_time}. A customer cannot book twice for the same date with active details. Please complete or reschedule your existing booking.`,
+          error: `You already have an active appointment (Booking ID: ${existingActiveBooking.booking_id}) scheduled on ${appointment_date} at ${existingActiveBooking.appointment_time}. To book again, please select another time slot.`,
           existingBookingId: existingActiveBooking.booking_id,
         },
         { status: 409 }

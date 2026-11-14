@@ -33,16 +33,6 @@ interface LocalDatabase {
 
 const DEFAULT_SERVICES: Service[] = [
   {
-    id: "srv-trial-5",
-    name: "Live Payment Trial Test",
-    category: "Hair",
-    description: "Temporary trial service for testing and verifying real live Razorpay gateway transactions.",
-    duration_minutes: 15,
-    price: 5,
-    image_url: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80",
-    is_active: true,
-  },
-  {
     id: "srv-1",
     name: "The Royal Cut & Style",
     category: "Hair",
@@ -297,9 +287,13 @@ export async function getBookedSlotsForDate(date: string): Promise<string[]> {
     .map((b) => b.appointment_time);
 }
 
-// RULE: Prevents genuine duplicate active bookings.
-// Abandoned/failed pending payments never block a customer from booking!
-export async function checkCustomerDuplicateBooking(phone: string, date: string): Promise<Booking | null> {
+// RULE: Prevents duplicate active bookings for the same time slot.
+// Allows clients to submit another booking for a different slot or service.
+export async function checkCustomerDuplicateBooking(
+  phone: string,
+  date: string,
+  time?: string
+): Promise<Booking | null> {
   const cleanPhone = phone.replace(/\D/g, "");
   const db = getLocalData();
   const now = Date.now();
@@ -307,6 +301,7 @@ export async function checkCustomerDuplicateBooking(phone: string, date: string)
 
   const existing = db.bookings.find((b) => {
     if (b.phone.replace(/\D/g, "") !== cleanPhone || b.appointment_date !== date) return false;
+    if (time && b.appointment_time !== time) return false;
     if (b.status === "CANCELLED" || b.status === "COMPLETED") return false;
 
     if (b.status === "CONFIRMED") {
