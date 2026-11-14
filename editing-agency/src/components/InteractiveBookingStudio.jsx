@@ -200,7 +200,7 @@ export default function InteractiveBookingStudio() {
         </div>
 
         {/* Main Interactive Booking Card */}
-        <div className="max-w-5xl mx-auto rounded-3xl glass-panel-glow border border-brand-cyan/30 p-6 sm:p-10 shadow-2xl bg-[#090b10]/95">
+        <div className="max-w-5xl mx-auto rounded-2xl sm:rounded-3xl glass-panel-glow border border-brand-cyan/30 p-4 sm:p-10 shadow-2xl bg-[#090b10]/95">
           
           {/* PERSISTENT CONFIRMED BOOKING STATE (Retained on page refresh!) */}
           {activeBooking ? (
@@ -448,7 +448,7 @@ export default function InteractiveBookingStudio() {
                   Your Contact Information & Raw Assets
                 </span>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4">
                   <div>
                     <label className="block text-[11px] font-mono text-slate-400 mb-1.5 uppercase">
                       Your Name *
@@ -459,7 +459,7 @@ export default function InteractiveBookingStudio() {
                       placeholder="e.g. Alex Mercer"
                       value={clientName}
                       onChange={(e) => setClientName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-base sm:text-sm focus:outline-none focus:border-brand-cyan"
                     />
                   </div>
 
@@ -469,11 +469,12 @@ export default function InteractiveBookingStudio() {
                     </label>
                     <input
                       type="email"
+                      inputMode="email"
                       required
                       placeholder="creator@domain.com"
                       value={clientEmail}
                       onChange={(e) => setClientEmail(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-base sm:text-sm focus:outline-none focus:border-brand-cyan"
                     />
                   </div>
 
@@ -483,10 +484,11 @@ export default function InteractiveBookingStudio() {
                     </label>
                     <input
                       type="tel"
+                      inputMode="tel"
                       placeholder="+91 98765 43210"
                       value={clientPhone}
                       onChange={(e) => setClientPhone(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-base sm:text-sm focus:outline-none focus:border-brand-cyan"
                     />
                   </div>
 
@@ -499,7 +501,7 @@ export default function InteractiveBookingStudio() {
                       placeholder="youtube.com/@channel or @insta"
                       value={clientSocial}
                       onChange={(e) => setClientSocial(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-base sm:text-sm focus:outline-none focus:border-brand-cyan"
                     />
                   </div>
                 </div>
@@ -513,7 +515,7 @@ export default function InteractiveBookingStudio() {
                     placeholder="Paste your Google Drive link or describe your vision (e.g., pure aesthetic slow-mo for reel, or high-octane gaming edit)..."
                     value={projectNote}
                     onChange={(e) => setProjectNote(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-base sm:text-sm focus:outline-none focus:border-brand-cyan"
                   />
                 </div>
 

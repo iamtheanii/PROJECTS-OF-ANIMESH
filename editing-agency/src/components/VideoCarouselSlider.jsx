@@ -5,9 +5,19 @@ import { Play, ExternalLink, ChevronLeft, ChevronRight, Youtube, Sparkles, Smart
 export default function VideoCarouselSlider({ onSelectVideo }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const touchStartX = useRef(0);
   const total = YOUTUBE_SHORTS.length;
   const activeItem = YOUTUBE_SHORTS[activeIndex];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const nextSlide = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % total);
@@ -96,52 +106,58 @@ export default function VideoCarouselSlider({ onSelectVideo }) {
             Speed-ramped boss highlights, flawless parries, and viral sound design direct from <span className="text-brand-cyan font-semibold">@sy1ko-kun</span>.
           </p>
 
-          {/* Keyboard Hint Pill */}
-          <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] font-mono text-slate-400">
-            <Keyboard className="w-3.5 h-3.5 text-brand-cyan" />
-            <span>Use <kbd className="px-1.5 py-0.5 rounded bg-black/60 text-white font-bold border border-white/10">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-black/60 text-white font-bold border border-white/10">→</kbd> to glide, press <kbd className="px-1.5 py-0.5 rounded bg-brand-cyan text-black font-bold">ENTER</kbd> to play in modal</span>
+          {/* Touch / Keyboard Hint Pill */}
+          <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-400">
+            <span className="sm:hidden flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-brand-cyan" />
+              Swipe left / right to browse shorts
+            </span>
+            <span className="hidden sm:inline">
+              <Keyboard className="w-3.5 h-3.5 text-brand-cyan inline mr-1" />
+              Use <kbd className="px-1.5 py-0.5 rounded bg-black/60 text-white font-bold border border-white/10">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-black/60 text-white font-bold border border-white/10">→</kbd> to glide, press <kbd className="px-1.5 py-0.5 rounded bg-brand-cyan text-black font-bold">ENTER</kbd> to play in modal
+            </span>
           </div>
         </div>
 
         {/* 3D Vertical Phone Reel Stage */}
-        <div className="relative max-w-5xl mx-auto min-h-[580px] sm:min-h-[640px] flex items-center justify-center [perspective:1400px]">
+        <div className="relative max-w-5xl mx-auto min-h-[520px] sm:min-h-[640px] flex items-center justify-center [perspective:1400px] overflow-hidden w-full">
           
           {/* Previous Slide Button */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 sm:left-6 z-30 p-3.5 rounded-2xl glass-panel border border-white/10 text-white hover:border-brand-cyan/50 hover:bg-brand-cyan hover:text-black transition-all shadow-xl group"
+            className="absolute left-1 sm:left-6 z-30 p-2.5 sm:p-3.5 rounded-2xl glass-panel border border-white/10 text-white hover:border-brand-cyan/50 hover:bg-brand-cyan hover:text-black transition-all shadow-xl group"
             aria-label="Previous Short"
           >
-            <ChevronLeft className="w-6 h-6 transform group-hover:-translate-x-0.5 transition-transform" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:-translate-x-0.5 transition-transform" />
           </button>
 
           {/* Next Slide Button */}
           <button
             onClick={nextSlide}
-            className="absolute right-2 sm:right-6 z-30 p-3.5 rounded-2xl glass-panel border border-white/10 text-white hover:border-brand-cyan/50 hover:bg-brand-cyan hover:text-black transition-all shadow-xl group"
+            className="absolute right-1 sm:right-6 z-30 p-2.5 sm:p-3.5 rounded-2xl glass-panel border border-white/10 text-white hover:border-brand-cyan/50 hover:bg-brand-cyan hover:text-black transition-all shadow-xl group"
             aria-label="Next Short"
           >
-            <ChevronRight className="w-6 h-6 transform group-hover:translate-x-0.5 transition-transform" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-0.5 transition-transform" />
           </button>
 
           {/* Vertical 9:16 Smartphone Reel */}
-          <div className="relative w-full h-[520px] sm:h-[580px] flex items-center justify-center">
+          <div className="relative w-full h-[480px] sm:h-[580px] flex items-center justify-center">
             {YOUTUBE_SHORTS.map((item, idx) => {
               let diff = idx - activeIndex;
               if (diff > total / 2) diff -= total;
               if (diff < -total / 2) diff += total;
 
               const isCenter = diff === 0;
-              const isVisible = Math.abs(diff) <= 2;
+              const isVisible = isMobile ? Math.abs(diff) <= 1 : Math.abs(diff) <= 2;
 
               if (!isVisible) return null;
 
-              // Vertical phone spread calculations
-              const translateX = diff * 220; // Spread distance for portrait cards
-              const translateZ = -Math.abs(diff) * 140; // Depth push back
-              const rotateY = diff * -18; // 3D Y rotation
-              const scale = Math.max(0.72, 1 - Math.abs(diff) * 0.14);
-              const opacity = isCenter ? 1 : Math.max(0.35, 0.7 - Math.abs(diff) * 0.25);
+              // Vertical phone spread calculations (Responsive for mobile screens)
+              const translateX = isMobile ? diff * 120 : diff * 220; // Tight spread on mobile, full on desktop
+              const translateZ = -Math.abs(diff) * (isMobile ? 90 : 140);
+              const rotateY = diff * (isMobile ? -14 : -18);
+              const scale = Math.max(0.72, 1 - Math.abs(diff) * (isMobile ? 0.18 : 0.14));
+              const opacity = isCenter ? 1 : Math.max(0.3, 0.65 - Math.abs(diff) * 0.25);
               const zIndex = 20 - Math.abs(diff);
 
               return (
@@ -159,7 +175,7 @@ export default function VideoCarouselSlider({ onSelectVideo }) {
                     zIndex,
                     opacity
                   }}
-                  className="absolute w-[260px] sm:w-[300px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer will-change-transform"
+                  className="absolute w-[220px] sm:w-[270px] md:w-[300px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer will-change-transform"
                 >
                   {/* Smartphone Frame Outer Housing */}
                   <div className={`rounded-[32px] p-2 bg-[#0d0f14] border shadow-2xl transition-all duration-300 ${

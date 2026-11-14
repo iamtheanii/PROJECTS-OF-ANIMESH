@@ -97,11 +97,11 @@ export default function Hero({ onOpenShowreel }) {
       />
 
       {/* Top Floating Glass Navigation Bar (from Pinterest reference) */}
-      <div className="fixed top-5 left-0 right-0 z-40 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="fixed top-3 sm:top-5 left-0 right-0 z-40 px-3 sm:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
           
           {/* Logo on Left */}
-          <a href="#" className="flex items-center">
+          <a href="#" className="flex items-center shrink-0">
             <GlimpzBrandLogo size="default" />
           </a>
 
@@ -131,10 +131,10 @@ export default function Hero({ onOpenShowreel }) {
           </nav>
 
           {/* Right Action: Enter / Book Pill */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
               href="#booking"
-              className="px-5 py-2 rounded-full text-xs font-bold text-black bg-white hover:bg-brand-cyan transition-all shadow-glow-card flex items-center gap-1.5"
+              className="px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold text-black bg-white hover:bg-brand-cyan transition-all shadow-glow-card flex items-center gap-1 sm:gap-1.5"
             >
               <span>Book Studio</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -145,11 +145,11 @@ export default function Hero({ onOpenShowreel }) {
       </div>
 
       {/* Main Hero Content (Left-aligned bold typography from Pinterest reference) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full relative z-10 my-auto pt-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full relative z-10 my-auto pt-6 sm:pt-8">
         <div className="max-w-2xl text-left">
           
-          {/* Massive 2-Line Bold Display Typography */}
-          <h1 className="font-hero text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.92] mb-6 drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
+          {/* Massive 2-Line Bold Display Typography with Responsive Scaling */}
+          <h1 className="font-hero text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.95] mb-5 sm:mb-6 drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)] break-words">
             <span className="block">{activeWorld.titleLine1}</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400">
               {activeWorld.titleLine2}
@@ -157,25 +157,25 @@ export default function Hero({ onOpenShowreel }) {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-slate-300 text-sm sm:text-base font-normal max-w-lg mb-8 leading-relaxed drop-shadow-md">
+          <p className="text-slate-300 text-xs sm:text-sm md:text-base font-normal max-w-lg mb-6 sm:mb-8 leading-relaxed drop-shadow-md">
             {activeWorld.subtitle}
           </p>
 
-          {/* CTA Button with Circular Arrow (Exact match to Pinterest image) */}
-          <div className="flex items-center gap-4">
+          {/* CTA Buttons (Mobile Responsive) */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 max-w-xs sm:max-w-none">
             <a
               href="#edits-slider"
-              className="group inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-white text-black font-display font-bold text-sm sm:text-base hover:bg-brand-cyan transition-all shadow-2xl"
+              className="group inline-flex items-center justify-center gap-3 pl-6 pr-2 py-2 rounded-full bg-white text-black font-display font-bold text-xs sm:text-base hover:bg-brand-cyan transition-all shadow-2xl"
             >
               <span>Explore Vault</span>
-              <div className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
                 <ArrowUpRight className="w-4 h-4" />
               </div>
             </a>
 
             <button
               onClick={onOpenShowreel}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full glass-panel border border-white/15 text-xs font-semibold text-white hover:border-brand-cyan/40 hover:bg-white/10 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 rounded-full glass-panel border border-white/15 text-xs font-semibold text-white hover:border-brand-cyan/40 hover:bg-white/10 transition-all"
             >
               <Play className="w-3.5 h-3.5 fill-current text-brand-cyan" />
               <span>Watch Reel</span>
@@ -186,21 +186,21 @@ export default function Hero({ onOpenShowreel }) {
       </div>
 
       {/* Bottom Area: Dynamic World Switcher Orbs + Circular HUD Meter */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full relative z-10 pt-8 pb-4">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-8 w-full relative z-10 pt-6 sm:pt-8 pb-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
           
           {/* Empty spacer for alignment */}
           <div className="hidden sm:block w-32" />
 
-          {/* Center: The 4 Circular Game World Switcher Orbs (Exact match to Pinterest reference!) */}
-          <div className="flex items-center gap-3.5 p-2 px-3 rounded-full bg-black/60 backdrop-blur-xl border border-white/10 shadow-2xl">
+          {/* Center: The 4 Circular Game World Switcher Orbs */}
+          <div className="flex items-center gap-2 sm:gap-3.5 p-1.5 sm:p-2 px-2.5 sm:px-3 rounded-full bg-black/60 backdrop-blur-xl border border-white/10 shadow-2xl max-w-full overflow-x-auto scrollbar-none">
             {WORLDS.map((world, idx) => {
               const isActive = idx === activeWorldIndex;
               return (
                 <button
                   key={world.id}
                   onClick={() => setActiveWorldIndex(idx)}
-                  className={`relative rounded-full transition-all duration-300 group p-1 ${
+                  className={`relative rounded-full transition-all duration-300 group p-0.5 sm:p-1 shrink-0 ${
                     isActive ? 'scale-110' : 'opacity-60 hover:opacity-100 hover:scale-105'
                   }`}
                   aria-label={`Switch to ${world.gameName}`}
@@ -214,7 +214,7 @@ export default function Hero({ onOpenShowreel }) {
                   )}
                   
                   {/* Orb Thumbnail Image */}
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-slate-900 border border-white/20 shadow-md">
+                  <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-slate-900 border border-white/20 shadow-md">
                     <img
                       src={world.orbThumbnail}
                       alt={world.gameName}
@@ -226,9 +226,9 @@ export default function Hero({ onOpenShowreel }) {
             })}
           </div>
 
-          {/* Right: Circular HUD Gauge / Speedometer (Exact match to 3.2M HUD in Pinterest reference!) */}
-          <div className="flex items-center gap-3.5 self-center sm:self-auto">
-            <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
+          {/* Right: Circular HUD Gauge / Speedometer */}
+          <div className="flex items-center gap-2.5 sm:gap-3.5 self-center sm:self-auto">
+            <div className="relative w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
               {/* Dashed outer circular meter */}
               <svg className="w-full h-full -rotate-90" viewBox="0 0 60 60">
                 <circle
@@ -255,17 +255,17 @@ export default function Hero({ onOpenShowreel }) {
 
               {/* Center Metric */}
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="font-display font-extrabold text-xs sm:text-sm text-white">
+                <span className="font-display font-extrabold text-[11px] sm:text-sm text-white">
                   {activeWorld.viewsMetric}
                 </span>
               </div>
             </div>
 
             <div className="text-left">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 block">
+              <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 block">
                 {activeWorld.hudLabel}
               </span>
-              <span className="text-xs font-semibold text-white">
+              <span className="text-[11px] sm:text-xs font-semibold text-white">
                 {activeWorld.gameName}
               </span>
             </div>

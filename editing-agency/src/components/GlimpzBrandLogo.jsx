@@ -5,11 +5,11 @@ export default function GlimpzBrandLogo({ size = 'default', showSubtitle = true,
   const isHero = size === 'hero';
 
   return (
-    <div className={`inline-flex items-center gap-3.5 select-none group cursor-pointer ${className}`}>
+    <div className={`inline-flex items-center gap-2 sm:gap-3.5 select-none group cursor-pointer ${className}`}>
       
       {/* 3D Kinetic Prism Emblem */}
-      <div className={`relative rounded-2xl p-[1.5px] transition-all duration-500 group-hover:scale-105 shrink-0 ${
-        isHero ? 'w-13 h-13 sm:w-16 sm:h-16' : isLarge ? 'w-11 h-11' : 'w-10 h-10'
+      <div className={`relative rounded-xl sm:rounded-2xl p-[1.5px] transition-all duration-500 group-hover:scale-105 shrink-0 ${
+        isHero ? 'w-12 h-12 sm:w-16 sm:h-16' : isLarge ? 'w-10 h-10 sm:w-11 sm:h-11' : 'w-8 h-8 sm:w-10 sm:h-10'
       }`}>
         {/* Ambient Neon Atmosphere Glow */}
         <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-brand-cyan via-purple-500 to-brand-cyan opacity-40 blur-md group-hover:opacity-85 transition-opacity duration-500 animate-pulse-slow" />

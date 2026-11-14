@@ -197,7 +197,7 @@ export default function WebDevCapabilities() {
                   <span className="font-mono text-xs text-slate-400 uppercase tracking-wider block">
                     Core Engineering Stack:
                   </span>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {activeService.tech.map((t, i) => (
                       <div
                         key={i}

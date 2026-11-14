@@ -33,10 +33,10 @@ export default function AboutFounders() {
           {/* DOSSIER 1: ANIMESH GHOSH (Cinematic & Aesthetic Lead) */}
           <div className="relative rounded-3xl bg-gradient-to-b from-[#0e1622] via-[#090d14] to-[#07090d] border border-sky-500/20 p-7 sm:p-9 overflow-hidden group hover:border-sky-400/50 transition-all duration-300 shadow-[0_10px_40px_rgba(14,165,233,0.06)]">
             {/* Top Pass Header */}
-            <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/10">
+            <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 pb-5 mb-6 border-b border-white/10">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse" />
-                <span className="font-mono text-xs uppercase tracking-widest text-sky-400 font-bold">
+                <span className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-sky-400 font-bold">
                   PASS #01 // CREATIVE DIRECTION
                 </span>
               </div>
@@ -121,10 +121,10 @@ export default function AboutFounders() {
           {/* DOSSIER 2: BISWAJIT DAS (High-Octane Combat & Tech Lead) */}
           <div className="relative rounded-3xl bg-gradient-to-b from-[#1b140e] via-[#120d09] to-[#0a0705] border border-amber-500/20 p-7 sm:p-9 overflow-hidden group hover:border-amber-400/50 transition-all duration-300 shadow-[0_10px_40px_rgba(245,158,11,0.06)]">
             {/* Top Pass Header */}
-            <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/10">
+            <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 pb-5 mb-6 border-b border-white/10">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
-                <span className="font-mono text-xs uppercase tracking-widest text-amber-400 font-bold">
+                <span className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-amber-400 font-bold">
                   PASS #02 // TECHNICAL DIRECTION
                 </span>
               </div>

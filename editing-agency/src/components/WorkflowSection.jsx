@@ -14,12 +14,27 @@ export default function WorkflowSection() {
   const trackRef = useRef(null);
   const [scrollOffset, setScrollOffset] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  // Scroll-driven sideward horizontal movement
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+
+  // Scroll-driven sideward horizontal movement (ONLY for desktop to avoid mobile overflow)
   useEffect(() => {
     let ticking = false;
 
     const handleScroll = () => {
+      if (!isDesktop) {
+        setScrollOffset(0);
+        return;
+      }
+
       if (!ticking) {
         window.requestAnimationFrame(() => {
           if (sectionRef.current) {
@@ -31,8 +46,8 @@ export default function WorkflowSection() {
             const currentPosition = windowHeight - rect.top;
             const progress = Math.min(Math.max(currentPosition / totalDistance, 0), 1);
             
-            // Translate horizontally: moves sideward across scroll (e.g. -140px to +140px)
-            const shift = (progress - 0.5) * -180;
+            // Translate horizontally on desktop: moves sideward across scroll (-140px to +140px)
+            const shift = (progress - 0.5) * -160;
             setScrollOffset(shift);
           }
           ticking = false;
@@ -47,7 +62,7 @@ export default function WorkflowSection() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isDesktop]);
 
   const slideManual = (direction) => {
     if (trackRef.current) {
@@ -109,21 +124,21 @@ export default function WorkflowSection() {
           {/* Glowing Track Line */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/20 to-transparent -translate-y-1/2 pointer-events-none" />
 
-          {/* Cards Track with Scroll-Driven Sideward Parallax & Smooth Overflow */}
+          {/* Cards Track: Mobile Native Swipe Snap + Desktop Scroll-Driven Sideward Parallax */}
           <div
             ref={trackRef}
             className="overflow-x-auto pb-4 pt-2 scrollbar-none snap-x snap-mandatory lg:overflow-visible transition-transform duration-300 ease-out"
             style={{
-              transform: `translate3d(${scrollOffset}px, 0, 0)`,
+              transform: isDesktop ? `translate3d(${scrollOffset}px, 0, 0)` : 'none',
             }}
           >
-            <div className="flex lg:grid lg:grid-cols-4 gap-6 min-w-[1080px] lg:min-w-0">
+            <div className="flex lg:grid lg:grid-cols-4 gap-4 sm:gap-6 w-max lg:w-auto px-1">
               {WORKFLOW_STEPS.map((step, idx) => {
                 const Icon = stepIcons[step.icon] || Compass;
                 return (
                   <div
                     key={step.step}
-                    className="flex-1 min-w-[270px] lg:min-w-0 group relative rounded-2xl p-7 bg-[#0d1017]/90 backdrop-blur-xl border border-white/10 hover:border-brand-cyan/50 hover:shadow-[0_10px_35px_rgba(34,211,238,0.12)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 snap-center"
+                    className="w-[82vw] sm:w-[320px] lg:w-auto shrink-0 lg:shrink group relative rounded-2xl p-6 sm:p-7 bg-[#0d1017]/90 backdrop-blur-xl border border-white/10 hover:border-brand-cyan/50 hover:shadow-[0_10px_35px_rgba(34,211,238,0.12)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 snap-center"
                   >
                     {/* Top ambient card shine */}
                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-cyan/0 to-transparent group-hover:via-brand-cyan/60 transition-all duration-500 rounded-t-2xl" />

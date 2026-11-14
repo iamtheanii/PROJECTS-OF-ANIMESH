@@ -48,7 +48,7 @@ export default function ColorGradingComparison() {
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
             onClick={(e) => handleMove(e.clientX)}
-            className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden cursor-ew-resize select-none glass-panel border border-brand-cyan/30 shadow-2xl"
+            className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden cursor-ew-resize select-none glass-panel border border-brand-cyan/30 shadow-2xl touch-none"
           >
             {/* Graded Image (Background full) */}
             <div
@@ -58,9 +58,9 @@ export default function ColorGradingComparison() {
                 filter: 'contrast(1.25) saturate(1.4) brightness(1.05)'
               }}
             >
-              <div className="absolute bottom-4 right-4 bg-brand-cyan/90 text-[#08090C] font-mono text-xs font-bold px-3 py-1.5 rounded-md shadow-lg flex items-center gap-1.5 backdrop-blur-md">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>AFTER: GLIMPZ CINEMATIC GRADE</span>
+              <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-brand-cyan/90 text-[#08090C] font-mono text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-md shadow-lg flex items-center gap-1.5 backdrop-blur-md">
+                <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+                <span>AFTER: GLIMPZ GRADE</span>
               </div>
             </div>
 
@@ -74,9 +74,9 @@ export default function ColorGradingComparison() {
                 boxShadow: '4px 0 25px rgba(0, 240, 255, 0.4)'
               }}
             >
-              <div className="absolute bottom-4 left-4 bg-black/80 text-slate-300 font-mono text-xs px-3 py-1.5 rounded-md shadow-lg border border-white/10 flex items-center gap-1.5 backdrop-blur-md">
-                <Film className="w-3.5 h-3.5" />
-                <span>BEFORE: RAW FLAT LOG</span>
+              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-black/80 text-slate-300 font-mono text-[10px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-md shadow-lg border border-white/10 flex items-center gap-1.5 backdrop-blur-md">
+                <Film className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+                <span>BEFORE: RAW LOG</span>
               </div>
             </div>
 

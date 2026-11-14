@@ -22,7 +22,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#08090C] text-slate-100 flex flex-col selection:bg-brand-cyan/20 selection:text-brand-cyan relative">
+    <div className="min-h-screen bg-[#08090C] text-slate-100 flex flex-col selection:bg-brand-cyan/20 selection:text-brand-cyan relative w-full max-w-full overflow-x-hidden">
       
       {/* Stylish Cinematic Intro Animation */}
       {showIntro && (
@@ -30,7 +30,7 @@ export default function App() {
       )}
 
       {/* Main Content Sections */}
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {/* Full-bleed Cinematic Hero based on Pinterest Reference */}
         <Hero onOpenShowreel={handleOpenShowreel} />
 
