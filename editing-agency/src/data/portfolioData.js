@@ -391,6 +391,32 @@ export const YOUTUBE_SHORTS = [
   }
 ];
 
+export const FEATURED_CLIENT_PROJECTS = [
+  {
+    id: "abulnai",
+    title: "ABDUL NAI — Haute Coiffure & Luxury Grooming",
+    tagline: "Full-Stack Salon Booking, Razorpay Payments & Google Sheets Automation",
+    liveUrl: "https://abulnai.vercel.app",
+    clientType: "Luxury Salon & Spa Atelier",
+    description: "A production-grade web application engineered for Mumbai's high-end grooming atelier. Features real-time slot booking with double-reservation protection, automated Razorpay UPI/Card payments, instant WhatsApp confirmation messages, and bi-directional Google Sheets client logging.",
+    techStack: ["Next.js 14", "Tailwind CSS", "Supabase", "Razorpay Gateway", "Google Sheets API", "WhatsApp Notification API", "Vercel Edge"],
+    stats: [
+      { label: "Lighthouse Performance", value: "99/100" },
+      { label: "Booking Speed", value: "< 45s" },
+      { label: "Payment Success Rate", value: "99.8%" },
+      { label: "Workflow Automation", value: "100%" }
+    ],
+    features: [
+      "Custom Step-by-Step Interactive Booking Engine",
+      "Razorpay Payment Processing (UPI, Google Pay, Cards)",
+      "Automated Bi-directional Google Sheets Database Sync",
+      "Instant Automated WhatsApp Booking Confirmations",
+      "Hospital-Grade VIP Service Menu & Atelier Showcase",
+      "Staff Admin Security Portal with Live Revenue Overview"
+    ]
+  }
+];
+
 export const REAL_WEB_DEV_SERVICES = [
   {
     id: "creator-portfolios",

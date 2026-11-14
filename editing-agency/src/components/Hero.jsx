@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Play, Sparkles, ChevronRight, Activity, Flame } from 'lucide-react';
 import GlimpzBrandLogo from './GlimpzBrandLogo';
 
@@ -61,6 +61,14 @@ export default function Hero({ onOpenShowreel }) {
   const [activeWorldIndex, setActiveWorldIndex] = useState(0);
   const activeWorld = WORLDS[activeWorldIndex];
 
+  // Auto slideshow every 4.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveWorldIndex((prev) => (prev + 1) % WORLDS.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [activeWorldIndex]);
+
   return (
     <section className="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-between pt-28 pb-12 sm:pb-16 overflow-hidden">
       
@@ -108,6 +116,9 @@ export default function Hero({ onOpenShowreel }) {
             <a href="#grade-compare" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
               Color Grading
             </a>
+            <a href="#process" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
+              Workflow
+            </a>
             <a href="#web-dev" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
               Web Dev
             </a>
@@ -137,12 +148,6 @@ export default function Hero({ onOpenShowreel }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full relative z-10 my-auto pt-8">
         <div className="max-w-2xl text-left">
           
-          {/* Top Pill Tag */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-mono font-bold tracking-wider text-white mb-6 shadow-lg">
-            <span className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: activeWorld.accentColor }} />
-            <span style={{ color: activeWorld.accentColor }}>{activeWorld.tag}</span>
-          </div>
-
           {/* Massive 2-Line Bold Display Typography */}
           <h1 className="font-hero text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.92] mb-6 drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
             <span className="block">{activeWorld.titleLine1}</span>
