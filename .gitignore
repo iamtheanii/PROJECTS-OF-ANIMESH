@@ -32,6 +32,7 @@ Business Website/
 # large files & archives
 *.zip
 *.mp4
+!editing-agency/public/videos/*.mp4
 *.tar.gz
 PulseSocial_Patched_Source/
 

@@ -4,25 +4,38 @@ import GlimpzBrandLogo from './GlimpzBrandLogo';
 
 const WORLDS = [
   {
-    id: 'wukong',
-    tag: '4K CINEMATIC COMBAT',
-    titleLine1: 'ENDLESS',
-    titleLine2: 'WORLDS',
-    subtitle: 'Transforming raw gameplay into heart-pounding combat stories and high-performance digital experiences.',
-    gameName: 'Black Myth: Wukong',
-    accentColor: '#F59E0B',
-    viewsMetric: '2.4M',
-    hudLabel: 'VIEWS GENERATED',
+    id: 'web-platforms',
+    tag: 'PRODUCTION WEB & AUTOMATION LAB',
+    titleLine1: 'WE BUILD',
+    titleLine2: 'THAT SHIPS',
+    subtitle: 'From full-stack salon & restaurant platforms with Razorpay and WhatsApp sync to ultra-fast modern business websites that turn visitors into paying clients.',
+    gameName: 'Full-Stack Web Engineering',
+    accentColor: '#00F0FF',
+    viewsMetric: '< 0.8s',
+    hudLabel: 'AVERAGE LOAD TIME',
     bgImage: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=85',
     orbThumbnail: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=200&q=80'
   },
   {
-    id: 'sekiro',
-    tag: 'VELOCITY & DEFLECTION',
+    id: 'luxury-systems',
+    tag: 'BESPOKE SALON & DINING APPS',
+    titleLine1: 'LUXURY WEB',
+    titleLine2: 'EXPERIENCES',
+    subtitle: 'Custom digital appointment booking engines, interactive restaurant menus, and developer portfolios engineered for 100% conversion.',
+    gameName: 'Next.js 14 / Edge Deployments',
+    accentColor: '#F59E0B',
+    viewsMetric: '99/100',
+    hudLabel: 'CORE WEB VITALS',
+    bgImage: 'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?auto=format&fit=crop&w=2000&q=85',
+    orbThumbnail: 'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?auto=format&fit=crop&w=200&q=80'
+  },
+  {
+    id: 'gaming-velocity',
+    tag: 'HIGH-OCTANE GAMING EDITS',
     titleLine1: 'SURGICAL',
-    titleLine2: 'RHYTHM',
-    subtitle: 'Frame-accurate katana clashing where every spark and sound effect hits the peak of the musical drop.',
-    gameName: 'Sekiro: Shadows Die Twice',
+    titleLine2: 'VELOCITY',
+    subtitle: 'Frame-accurate katana clashing and kill transients synched to heavy beat drops. 2M+ views generated across YouTube Shorts and Instagram Reels.',
+    gameName: 'Sekiro & Elden Ring Combat',
     accentColor: '#EF4444',
     viewsMetric: '60 FPS',
     hudLabel: 'COMBAT CADENCE',
@@ -30,28 +43,15 @@ const WORLDS = [
     orbThumbnail: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=200&q=80'
   },
   {
-    id: 'eldenring',
-    tag: 'ATMOSPHERIC STORYTELLING',
-    titleLine1: 'SHADOW &',
-    titleLine2: 'GRANDEUR',
-    subtitle: 'Cinematic Rec.709 color grading and orchestral pacing capturing the monumental depth of dark fantasy.',
-    gameName: 'Elden Ring: Erdtree',
-    accentColor: '#38BDF8',
-    viewsMetric: '4K HDR',
-    hudLabel: 'DAVINCI MASTER',
-    bgImage: 'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?auto=format&fit=crop&w=2000&q=85',
-    orbThumbnail: 'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?auto=format&fit=crop&w=200&q=80'
-  },
-  {
-    id: 'ringedcity',
-    tag: 'HIGH-RETENTION LAB',
-    titleLine1: 'KINETIC',
-    titleLine2: 'PACING',
-    subtitle: 'Hook design, micro-transitions, and custom audio layers engineered to keep viewer eyes glued to the screen.',
-    gameName: 'Dark Souls III / Valorant',
+    id: 'cinematic-vibe',
+    tag: 'CINEMATIC AESTHETIC VISUALS',
+    titleLine1: 'TIMELESS',
+    titleLine2: 'STORIES',
+    subtitle: 'Emotion-driven slow-motion curves, DaVinci Resolve color grading, and seamless narrative pacing that command viewer attention.',
+    gameName: 'Black Myth & Dark Souls',
     accentColor: '#A855F7',
-    viewsMetric: '120+',
-    hudLabel: 'CUTS PER MINUTE',
+    viewsMetric: '2.4M+',
+    hudLabel: 'VIEWS GENERATED',
     bgImage: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=2000&q=85',
     orbThumbnail: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=200&q=80'
   }
@@ -110,6 +110,9 @@ export default function Hero({ onOpenShowreel }) {
             <a href="#" className="px-3.5 py-1 text-xs font-semibold text-white bg-white/10 rounded-full">
               Home
             </a>
+            <a href="#web-dev" className="px-3.5 py-1 text-xs font-semibold text-brand-cyan bg-brand-cyan/10 rounded-full border border-brand-cyan/30">
+              Web Dev
+            </a>
             <a href="#edits-slider" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
               Vault
             </a>
@@ -118,9 +121,6 @@ export default function Hero({ onOpenShowreel }) {
             </a>
             <a href="#process" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
               Workflow
-            </a>
-            <a href="#web-dev" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
-              Web Dev
             </a>
             <a href="#about" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
               About
@@ -161,13 +161,13 @@ export default function Hero({ onOpenShowreel }) {
             {activeWorld.subtitle}
           </p>
 
-          {/* CTA Buttons (Mobile Responsive) */}
+          {/* CTA Buttons (Prioritizing Web Dev while keeping video reel) */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 max-w-xs sm:max-w-none">
             <a
-              href="#edits-slider"
+              href="#web-dev"
               className="group inline-flex items-center justify-center gap-3 pl-6 pr-2 py-2 rounded-full bg-white text-black font-display font-bold text-xs sm:text-base hover:bg-brand-cyan transition-all shadow-2xl"
             >
-              <span>Explore Vault</span>
+              <span>Explore Web Builds</span>
               <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
                 <ArrowUpRight className="w-4 h-4" />
               </div>
@@ -178,7 +178,7 @@ export default function Hero({ onOpenShowreel }) {
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 rounded-full glass-panel border border-white/15 text-xs font-semibold text-white hover:border-brand-cyan/40 hover:bg-white/10 transition-all"
             >
               <Play className="w-3.5 h-3.5 fill-current text-brand-cyan" />
-              <span>Watch Reel</span>
+              <span>Video & Gaming Reel</span>
             </button>
           </div>
 

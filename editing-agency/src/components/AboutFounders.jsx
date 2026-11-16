@@ -53,6 +53,17 @@ export default function AboutFounders() {
           boxBg: 'bg-emerald-950/30 border-emerald-500/20',
           pillBg: 'bg-emerald-500/10 border-emerald-500/20 text-emerald-200'
         };
+      case 'rose':
+        return {
+          border: 'border-rose-500/20 hover:border-rose-400/50',
+          gradient: 'from-[#1c0e12] via-[#12090b] to-[#0a0507]',
+          shadow: 'shadow-[0_10px_40px_rgba(244,63,94,0.06)]',
+          badgeText: 'text-rose-400',
+          badgeBg: 'bg-rose-400',
+          avatarGrad: 'from-rose-400 to-pink-600',
+          boxBg: 'bg-rose-950/30 border-rose-500/20',
+          pillBg: 'bg-rose-500/10 border-rose-500/20 text-rose-200'
+        };
       case 'purple':
       default:
         return {
@@ -72,6 +83,7 @@ export default function AboutFounders() {
     if (role.includes('Creative')) return <Film className="w-3.5 h-3.5" />;
     if (role.includes('Technical')) return <Flame className="w-3.5 h-3.5" />;
     if (role.includes('Web Developer')) return <Code2 className="w-3.5 h-3.5" />;
+    if (role.includes('Sales') || role.includes('Relations')) return <Sparkles className="w-3.5 h-3.5 text-rose-400" />;
     return <Briefcase className="w-3.5 h-3.5" />;
   };
 

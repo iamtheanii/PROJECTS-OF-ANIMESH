@@ -63,8 +63,8 @@ export const AGENCY_INFO = {
       name: "Byanjan Behera",
       role: "Team Member (Full Stack Web Developer)",
       badge: "PASS #03 // FULL STACK ENGINEERING",
-      phone: "+91 8456982547",
-      whatsapp: "https://wa.me/918456982547",
+      phone: "+91 7008285305",
+      whatsapp: "https://wa.me/917008285305",
       portfolio: "https://byanjanbehera.me/",
       specialization: "Full Stack & Multi-Framework Web Engineering",
       tools: ["Next.js", "Spring Boot", "MERN", "Django", "FastAPI", "Express.js"],
@@ -77,13 +77,26 @@ export const AGENCY_INFO = {
       name: "Sushobhan Pratihari",
       role: "Team Member (Lead Manager)",
       badge: "PASS #04 // CLIENT & PROGRAM OPERATIONS",
-      phone: "+91 9437238055",
-      whatsapp: "https://wa.me/919437238055",
+      phone: "+91 9692276657",
+      whatsapp: "https://wa.me/919692276657",
       specialization: "Program, Client Services & Project Management",
       tools: ["Program Manager", "Client Services Manager", "Project Manager", "Delivery Roadmaps"],
       platforms: ["Client Success", "Account Growth", "Agile Execution", "Quality Verification"],
       bio: "Directs end-to-end program lifecycles, client services, and cross-functional delivery. Ensures seamless client communication, scope alignment, and timely milestones.",
       skills: ["Program Management", "Client Services", "Project Management", "Stakeholder Relations", "Process Optimization"],
+      linkedin: "https://www.linkedin.com/in/glimpzstudio"
+    },
+    {
+      name: "Shreya Ghosh",
+      role: "Team Member (Sales & Client Relations)",
+      badge: "PASS #05 // SALES & OUTREACH",
+      phone: "+91 8250921545",
+      whatsapp: "https://wa.me/918250921545",
+      specialization: "Sales Executive, Client Acquisition & Telecalling",
+      tools: ["Sales Executive", "Sales Representative", "Telemarketer", "Telecaller", "Client Onboarding"],
+      platforms: ["Client Consultations", "Direct Outreach", "Relationship Management", "Deal Closures"],
+      bio: "Drives prospective client outreach, project discovery consultations, and account management. Connects businesses with the exact web and visual solutions they need to grow.",
+      skills: ["Sales Executive", "Sales Representative", "Telemarketing", "Telecalling", "Client Success"],
       linkedin: "https://www.linkedin.com/in/glimpzstudio"
     }
   ]
@@ -144,40 +157,40 @@ export const PROJECT_CLASSIFICATIONS = [
         id: "web-restaurants-cafes",
         title: "Restaurants & Cafés",
         description: "Interactive digital menus, table reservation engine, online food ordering, and 1-click WhatsApp order routing.",
-        duration: "2 – 3 Days",
-        durationBadge: "2 – 3 Days",
+        duration: "1 – 2 Weeks",
+        durationBadge: "1 – 2 Weeks",
         recommendedFor: "Cafés, Dine-in Restaurants, Restrobars & Cloud Kitchens"
       },
       {
         id: "web-clinics-dental",
         title: "Clinics & Dental",
         description: "Doctor profiles, specialized treatments, patient appointment calendar, and online consultation inquiries.",
-        duration: "3 – 4 Days",
-        durationBadge: "3 – 4 Days",
+        duration: "1 – 2 Weeks",
+        durationBadge: "1 – 2 Weeks",
         recommendedFor: "Dental Clinics, Multi-Specialty Clinics & Doctors"
       },
       {
         id: "web-salons-spas",
         title: "Salons & Spas",
         description: "Curated service menu, slot selection, staff assignments, advance payments, and automated WhatsApp confirmations.",
-        duration: "3 – 4 Days",
-        durationBadge: "3 – 4 Days",
+        duration: "1 – 2 Weeks",
+        durationBadge: "1 – 2 Weeks",
         recommendedFor: "Luxury Salons, Grooming Ateliers, Spas & Beauty Studios"
       },
       {
         id: "web-coaching-institutes",
         title: "Coaching Institutes",
         description: "Course and batch details, student online applications, fee payments, result showcases, and study portals.",
-        duration: "3 – 4 Days",
-        durationBadge: "3 – 4 Days",
+        duration: "1 – 2 Weeks",
+        durationBadge: "1 – 2 Weeks",
         recommendedFor: "Coaching Academies, Competitive Exam Centers & Tutors"
       },
       {
         id: "web-event-planners",
         title: "Event Planners",
         description: "Visual event portfolio gallery, custom quotation requests, package tiers, and live event date availability checker.",
-        duration: "2 – 3 Days",
-        durationBadge: "2 – 3 Days",
+        duration: "1 – 2 Weeks",
+        durationBadge: "1 – 2 Weeks",
         recommendedFor: "Wedding Planners, Corporate Event Producers & Decorators"
       },
       {
@@ -192,16 +205,16 @@ export const PROJECT_CLASSIFICATIONS = [
         id: "web-bakeries-cakes",
         title: "Bakeries & Cake Shops",
         description: "Artisan cake catalogue, custom cake customization forms, pickup/delivery date selector, and advance payment.",
-        duration: "2 – 3 Days",
-        durationBadge: "2 – 3 Days",
+        duration: "1 – 2 Weeks",
+        durationBadge: "1 – 2 Weeks",
         recommendedFor: "Bakeries, Patisseries, Cake Designers & Dessert Shops"
       },
       {
         id: "web-gyms-fitness",
         title: "Gyms & Fitness",
         description: "Membership plan displays, online membership registration, trial session booking, and personal trainer profiles.",
-        duration: "2 – 3 Days",
-        durationBadge: "2 – 3 Days",
+        duration: "1 – 2 Weeks",
+        durationBadge: "1 – 2 Weeks",
         recommendedFor: "Gyms, Crossfit Boxes, Yoga Studios & Fitness Trainers"
       }
     ]
@@ -484,21 +497,21 @@ export const REAL_WEB_DEV_SERVICES = [
     title: "Creator & Agency Portfolios",
     description: "Custom dark-mode web experiences with video embeds, responsive galleries, and smooth sliders.",
     tech: ["React 18", "Tailwind CSS", "Vite", "YouTube Shorts Embeds"],
-    deliverable: "1 – 2 Days"
+    deliverable: "1 – 2 Weeks"
   },
   {
     id: "landing-pages",
     title: "Event & Launch Landing Pages",
     description: "Fast-loading landing pages for creators launching merch, editing courses, digital presets, or events.",
     tech: ["Next.js / Vite", "Tailwind CSS", "Conversion Copy", "Analytics Ready"],
-    deliverable: "2 – 3 Days"
+    deliverable: "1 – 2 Weeks"
   },
   {
     id: "corporate-sites",
     title: "Business & Corporate Websites",
     description: "Multi-page commercial web builds with lead capture, mobile responsiveness, and SEO readiness.",
     tech: ["React / Tailwind", "SEO Meta", "Direct Booking", "Fast Core Web Vitals"],
-    deliverable: "3 – 4 Days"
+    deliverable: "1 – 2 Weeks"
   },
   {
     id: "booking-automation",

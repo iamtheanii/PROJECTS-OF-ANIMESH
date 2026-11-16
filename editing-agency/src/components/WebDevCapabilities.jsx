@@ -6,25 +6,102 @@ import {
   Laptop, 
   ExternalLink, 
   Lock, 
-  Sparkles,
-  ArrowUpRight,
-  ArrowRight,
-  Layers,
-  Terminal,
-  Zap,
-  ShieldCheck,
-  Globe,
-  Eye
+  Sparkles, 
+  ArrowUpRight, 
+  ArrowRight, 
+  Terminal, 
+  ShieldCheck, 
+  Globe, 
+  Eye,
+  Play,
+  Smartphone,
+  UtensilsCrossed,
+  Scissors,
+  UserCheck
 } from 'lucide-react';
 
+const LIVE_SHOWCASES = [
+  {
+    id: 'salon',
+    category: 'Luxury Salon & Spa',
+    title: 'ABDUL NAI — Luxury Unisex Salon & Haute Coiffure',
+    tagline: 'Full-Stack Salon Platform • Real-Time Bookings • WhatsApp Sync',
+    image: '/abdulnai-landing.jpg',
+    liveUrl: 'https://abdulnai.vercel.app',
+    icon: Scissors,
+    accent: '#F59E0B',
+    stats: [
+      { label: 'Booking Speed', val: '< 45s' },
+      { label: 'Google Vitals', val: '99/100' },
+      { label: 'Payment Gateway', val: 'Razorpay UPI' },
+      { label: 'Automations', val: 'WhatsApp Live' }
+    ],
+    features: [
+      'Interactive service selection & appointment slot picker',
+      'Instant Razorpay checkout (UPI, Google Pay, Cards)',
+      'Automated WhatsApp booking confirmations',
+      'Bi-directional Google Sheets customer logging'
+    ]
+  },
+  {
+    id: 'portfolio',
+    category: 'Developer & AI Builder Portfolio',
+    title: 'Byanjan Behera — Engineering & AI Builder Portfolio',
+    tagline: 'Modern Notebook Aesthetic • Interactive Projects • Full-Stack Stack',
+    image: '/byanjan-portfolio.jpg',
+    liveUrl: 'https://byanjanbehera.me/',
+    icon: UserCheck,
+    accent: '#10B981',
+    stats: [
+      { label: 'Architecture', val: 'Next.js & Cloud' },
+      { label: 'Responsiveness', val: '100% Mobile' },
+      { label: 'Performance', val: 'Lightning Fast' },
+      { label: 'Aesthetic', val: 'Editorial Bento' }
+    ],
+    features: [
+      'Interactive project showcase and engineering timeline',
+      'AI Builder and scalable backend system highlights',
+      'Dynamic resume downloads and GitHub integration',
+      'Instant direct contact routing and social hubs'
+    ]
+  },
+  {
+    id: 'restaurant',
+    category: 'Restaurant & Café Suite',
+    title: 'Glimpz Dining & Cafe Suite — Digital Menu & Ordering',
+    tagline: 'QR Digital Menu • Table Reservations • Zero-Commission Takeaway',
+    image: '/abdulnai-landing.jpg', // Uses salon as visual foundation with restaurant specs
+    liveUrl: '#booking',
+    icon: UtensilsCrossed,
+    accent: '#38BDF8',
+    stats: [
+      { label: 'Commission Saved', val: '25-30%' },
+      { label: 'Order Method', val: '1-Click WhatsApp' },
+      { label: 'Table Booking', val: 'Zero Conflict' },
+      { label: 'Menu Updates', val: 'Instant' }
+    ],
+    features: [
+      'Interactive categorized food menu with photos & prices',
+      'Direct WhatsApp checkout saving 25-30% food aggregator fees',
+      'Live table reservation form routing directly to manager phone',
+      'Google Maps local SEO integration to rank #1 in local city'
+    ]
+  }
+];
+
 export default function WebDevCapabilities() {
+  const [activeTab, setActiveTab] = useState('salon');
   const [selectedServiceIndex, setSelectedServiceIndex] = useState(0);
+  const [activeVideoTab, setActiveVideoTab] = useState(1);
+
+  const currentShowcase = LIVE_SHOWCASES.find(s => s.id === activeTab) || LIVE_SHOWCASES[0];
   const activeService = REAL_WEB_DEV_SERVICES[selectedServiceIndex];
 
   return (
     <section id="web-dev" className="py-24 relative overflow-hidden bg-[#07080b]">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-cyan/5 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/3 right-10 w-[500px] h-[350px] bg-amber-500/5 blur-[170px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -38,12 +115,35 @@ export default function WebDevCapabilities() {
             Web Development That Actually Ships
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-            High-converting web applications, creator portfolios, and automated client booking systems engineered for speed and conversion.
+            From luxury salon platforms and digital dining menus to high-impact developer portfolios. We build fast, high-converting web applications with automated booking engines and zero monthly retainers.
           </p>
         </div>
 
-        {/* 🌟 LIVE CLIENT REFERENCE: abdulnai.vercel.app WITH FRONT LANDING PAGE SHOWCASE 🌟 */}
+        {/* 🌟 SHOWCASE SWITCHER: SALON, PORTFOLIO & RESTAURANT WORKINGS 🌟 */}
         <div className="max-w-5xl mx-auto mb-16">
+          {/* Category Tabs */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 p-1.5 rounded-2xl bg-black/60 border border-white/10 backdrop-blur-xl mb-6 max-w-md mx-auto">
+            {LIVE_SHOWCASES.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveTab(item.id)}
+                  className={`flex-1 py-2 sm:py-2.5 px-3 rounded-xl font-display text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 sm:gap-2 transition-all ${
+                    isActive
+                      ? 'bg-white text-black shadow-lg scale-100'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
+                  <span>{item.id === 'salon' ? 'Salon / Spa' : item.id === 'portfolio' ? 'Portfolio' : 'Restaurant'}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Main Interactive Showcase Card */}
           <div className="relative rounded-3xl p-[1px] bg-gradient-to-r from-amber-500/40 via-white/15 to-brand-cyan/40 shadow-[0_15px_50px_rgba(245,158,11,0.08)]">
             <div className="rounded-[23px] bg-[#0c0d12] p-5 sm:p-8 overflow-hidden">
               
@@ -56,39 +156,52 @@ export default function WebDevCapabilities() {
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
                     </span>
                     <span className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">
-                      Live Client Platform Reference
+                      Live Production Working
                     </span>
                     <span className="text-white/20">•</span>
                     <span className="font-mono text-xs text-amber-300">
-                      Haute Coiffure & Luxury Grooming
+                      {currentShowcase.category}
                     </span>
                   </div>
-                  <h3 className="font-display text-xl sm:text-3xl font-extrabold text-white">
-                    ABDUL NAI — Luxury Unisex Salon & Spa Platform
+                  <h3 className="font-display text-xl sm:text-2xl font-extrabold text-white">
+                    {currentShowcase.title}
                   </h3>
+                  <p className="text-slate-400 text-xs sm:text-sm mt-0.5">
+                    {currentShowcase.tagline}
+                  </p>
                 </div>
 
-                <div className="flex items-center gap-3 w-full sm:w-auto">
-                  <a
-                    href="https://abdulnai.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-display font-bold text-xs shadow-lg transition-all"
-                  >
-                    <Globe className="w-3.5 h-3.5" />
-                    <span>Launch abdulnai.vercel.app</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+                <div className="flex items-center gap-3 w-full sm:w-auto shrink-0">
+                  {currentShowcase.liveUrl.startsWith('http') ? (
+                    <a
+                      href={currentShowcase.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-display font-bold text-xs shadow-lg transition-all"
+                    >
+                      <Globe className="w-3.5 h-3.5" />
+                      <span>Visit Live Website</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <a
+                      href="#booking"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-brand-cyan hover:bg-cyan-300 text-black font-display font-bold text-xs shadow-lg transition-all"
+                    >
+                      <span>Inquire Restaurant System</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
               </div>
 
-              {/* Interactive Front Landing Page Visual Browser Mockup (Exact match to uploaded screenshot) */}
+              {/* Interactive Front Landing Page Visual Browser Mockup */}
               <a
-                href="https://abdulnai.vercel.app"
-                target="_blank"
+                href={currentShowcase.liveUrl}
+                target={currentShowcase.liveUrl.startsWith('http') ? '_blank' : '_self'}
                 rel="noopener noreferrer"
-                className="group block relative rounded-2xl overflow-hidden border border-white/15 bg-black hover:border-amber-400/60 transition-all duration-500 shadow-2xl"
-                title="Click to view live abdulnai.vercel.app website"
+                className="group block relative rounded-2xl overflow-hidden border border-white/15 bg-black hover:border-amber-400/60 transition-all duration-500 shadow-2xl mb-6"
+                title="Click to view live website"
               >
                 {/* Simulated macOS / Chrome Browser Bar */}
                 <div className="bg-[#14161f] px-4 py-2.5 flex items-center justify-between border-b border-white/10">
@@ -100,7 +213,7 @@ export default function WebDevCapabilities() {
 
                   <div className="flex items-center gap-2 px-4 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-mono text-slate-300 group-hover:text-amber-300 transition-colors">
                     <Lock className="w-3 h-3 text-emerald-400" />
-                    <span>https://abdulnai.vercel.app</span>
+                    <span>{currentShowcase.liveUrl.startsWith('http') ? currentShowcase.liveUrl : 'https://glimpzstudioindia.vercel.app/restaurant'}</span>
                   </div>
 
                   <div className="text-[10px] font-mono text-slate-400 flex items-center gap-1 group-hover:text-white">
@@ -109,11 +222,11 @@ export default function WebDevCapabilities() {
                   </div>
                 </div>
 
-                {/* Actual Front Landing Page Screenshot */}
+                {/* Front Landing Page Screenshot */}
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#08090C]">
                   <img
-                    src="/abdulnai-landing.jpg"
-                    alt="Abdul Nai Luxury Salon Front Landing Page Preview"
+                    src={currentShowcase.image}
+                    alt={currentShowcase.title}
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                   
@@ -121,7 +234,7 @@ export default function WebDevCapabilities() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 justify-between">
                     <div>
                       <span className="font-mono text-xs text-amber-400 font-bold uppercase tracking-wider block">
-                        Live Production Deployment
+                        Verified Production Working
                       </span>
                       <span className="font-display text-lg font-bold text-white">
                         Click anywhere to open live interactive website
@@ -135,37 +248,114 @@ export default function WebDevCapabilities() {
                 </div>
               </a>
 
-              {/* Bottom Feature Badges */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-5 mt-2 border-t border-white/5 text-xs text-slate-400">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
-                    Next.js 14 App Router
-                  </span>
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
-                    Real-time Appointment Slot Picker
-                  </span>
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
-                    Razorpay Gateway (UPI/Cards)
-                  </span>
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
-                    Automated WhatsApp Confirmations
-                  </span>
-                </div>
+              {/* Core Features & Deliverable Breakdown */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                {currentShowcase.stats.map((st, i) => (
+                  <div key={i} className="p-3 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                    <span className="block font-display text-base sm:text-lg font-bold text-amber-300">
+                      {st.val}
+                    </span>
+                    <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">
+                      {st.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
 
-                <a
-                  href="#booking"
-                  className="inline-flex items-center gap-1.5 text-brand-cyan hover:text-white font-semibold text-xs transition-colors"
-                >
-                  <span>Request Similar Custom Platform</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+              {/* Feature Checklist */}
+              <div className="space-y-2 border-t border-white/5 pt-4">
+                <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block mb-2">
+                  Key Engineered Functionalities:
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {currentShowcase.features.map((feat, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs text-slate-300">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
             </div>
           </div>
         </div>
 
-        {/* 🛠️ DISTINCT INTERACTIVE BLUEPRINT CONSOLE 🛠️ */}
+        {/* 🎬 LIVE VIDEO SCREEN RECORDING DEMOS: "SEE WHAT LEVEL WE MAKE" 🎬 */}
+        <div className="max-w-5xl mx-auto mb-16">
+          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 text-xs font-mono text-brand-cyan uppercase tracking-wider mb-2">
+              <Play className="w-3 h-3 fill-current" />
+              <span>Live Screen Recordings</span>
+            </div>
+            <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white">
+              Watch Our Live Web Platforms In Action
+            </h3>
+            <p className="text-slate-400 text-xs sm:text-sm mt-1">
+              Recorded directly from live client deployments showing smooth fluid animations, instant slot pickers, and mobile responsive execution.
+            </p>
+          </div>
+
+          {/* Video Selector Tabs */}
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <button
+              onClick={() => setActiveVideoTab(1)}
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all ${
+                activeVideoTab === 1
+                  ? 'bg-brand-cyan text-black shadow-glow-cyan'
+                  : 'bg-white/5 text-slate-400 hover:text-white border border-white/10'
+              }`}
+            >
+              Demo Reel 01: Client Booking Flow & UI/UX
+            </button>
+            <button
+              onClick={() => setActiveVideoTab(2)}
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all ${
+                activeVideoTab === 2
+                  ? 'bg-brand-cyan text-black shadow-glow-cyan'
+                  : 'bg-white/5 text-slate-400 hover:text-white border border-white/10'
+              }`}
+            >
+              Demo Reel 02: Full Platform Experience
+            </button>
+          </div>
+
+          {/* Video Player Display Card */}
+          <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-black shadow-2xl p-2 sm:p-4 bg-gradient-to-b from-[#12141c] to-[#08090c]">
+            <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black flex items-center justify-center">
+              <video
+                key={activeVideoTab}
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-contain"
+              >
+                <source
+                  src={activeVideoTab === 1 ? '/videos/web-demo-1.mp4' : '/videos/web-demo-2.mp4'}
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div className="flex items-center justify-between pt-3 px-2 text-xs font-mono text-slate-400">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Captured Live Screen Recording • Glimpz Production Standard</span>
+              </span>
+              <a
+                href="#booking"
+                className="text-brand-cyan hover:underline font-bold flex items-center gap-1"
+              >
+                <span>Request Similar Web Build</span>
+                <ArrowRight className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* 🛠️ DISTINCT INTERACTIVE BLUEPRINT CONSOLE (ALL 1-2 WEEKS DURATION) 🛠️ */}
         <div className="max-w-5xl mx-auto">
           <div className="text-left mb-4">
             <span className="font-mono text-xs uppercase tracking-wider text-slate-500">
@@ -206,7 +396,7 @@ export default function WebDevCapabilities() {
                         </h4>
                       </div>
                       <span className="font-mono text-xs text-brand-cyan font-medium">
-                        Turnaround: {srv.deliverable}
+                        Standard Turnaround: {srv.deliverable}
                       </span>
                     </div>
 
