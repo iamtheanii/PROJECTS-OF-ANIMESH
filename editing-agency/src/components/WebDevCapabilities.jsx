@@ -66,6 +66,12 @@ const LIVE_SHOWCASES = [
   }
 ];
 
+const DEMO_REELS = [
+  { id: 1, title: 'Demo Reel 01: Client Booking Flow & UI/UX', src: '/videos/web-demo-reel-1.mp4' },
+  { id: 2, title: 'Demo Reel 02: Fluid Navigation & Architecture', src: '/videos/web-demo-1.mp4' },
+  { id: 3, title: 'Demo Reel 03: Full Platform Experience', src: '/videos/web-demo-2.mp4' }
+];
+
 export default function WebDevCapabilities() {
   const [activeTab, setActiveTab] = useState('salon');
   const [selectedServiceIndex, setSelectedServiceIndex] = useState(0);
@@ -267,27 +273,20 @@ export default function WebDevCapabilities() {
           </div>
 
           {/* Video Selector Tabs */}
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <button
-              onClick={() => setActiveVideoTab(1)}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all ${
-                activeVideoTab === 1
-                  ? 'bg-brand-cyan text-black shadow-glow-cyan'
-                  : 'bg-white/5 text-slate-400 hover:text-white border border-white/10'
-              }`}
-            >
-              Demo Reel 01: Client Booking Flow & UI/UX
-            </button>
-            <button
-              onClick={() => setActiveVideoTab(2)}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all ${
-                activeVideoTab === 2
-                  ? 'bg-brand-cyan text-black shadow-glow-cyan'
-                  : 'bg-white/5 text-slate-400 hover:text-white border border-white/10'
-              }`}
-            >
-              Demo Reel 02: Full Platform Experience
-            </button>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+            {DEMO_REELS.map((reel) => (
+              <button
+                key={reel.id}
+                onClick={() => setActiveVideoTab(reel.id)}
+                className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all ${
+                  activeVideoTab === reel.id
+                    ? 'bg-brand-cyan text-black shadow-glow-cyan'
+                    : 'bg-white/5 text-slate-400 hover:text-white border border-white/10'
+                }`}
+              >
+                {reel.title}
+              </button>
+            ))}
           </div>
 
           {/* Autonomous Looping Video Showcase (GIF-style with Zero Browser Controls) */}
@@ -306,7 +305,7 @@ export default function WebDevCapabilities() {
                 className="w-full h-full object-contain pointer-events-none select-none"
               >
                 <source
-                  src={activeVideoTab === 1 ? '/videos/web-demo-1.mp4' : '/videos/web-demo-2.mp4'}
+                  src={DEMO_REELS.find(r => r.id === activeVideoTab)?.src || '/videos/web-demo-reel-1.mp4'}
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.

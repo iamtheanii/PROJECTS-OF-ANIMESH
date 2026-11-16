@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AGENCY_INFO, PROJECT_CLASSIFICATIONS } from '../data/portfolioData';
 import { 
   Sparkles, 
@@ -38,6 +38,9 @@ export default function InteractiveBookingStudio() {
   // Dynamic persistent booking state from localStorage
   const [activeBooking, setActiveBooking] = useState(null);
 
+  // Ref to automatically scroll to Step 2 when category is selected
+  const formatStepRef = useRef(null);
+
   // Check localStorage on mount
   useEffect(() => {
     try {
@@ -60,6 +63,10 @@ export default function InteractiveBookingStudio() {
     if (cat && cat.options.length > 0) {
       setSelectedSubOptionId(cat.options[0].id);
     }
+    // Automatically smooth-scroll to Step 2: "Select Format & View Duration"
+    setTimeout(() => {
+      formatStepRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
   };
 
   const generateTicketId = () => {
@@ -101,6 +108,11 @@ export default function InteractiveBookingStudio() {
     window.open(`https://wa.me/918456982547?text=${text}`, '_blank');
   };
 
+  const handleWhatsAppSushobhan = (customData = null) => {
+    const text = encodeURIComponent(getWhatsAppMessage(customData));
+    window.open(`https://wa.me/919692276657?text=${text}`, '_blank');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -129,20 +141,62 @@ export default function InteractiveBookingStudio() {
       status: 'Active • In Review with Directors'
     };
 
-    // Prepare Web3Forms dispatch
+    // Executive formatted email body for Gmail display
+    const formattedEmailMessage = `
+==============================================
+⚡ GLIMPZ STUDIO • OFFICIAL PROJECT INTAKE ⚡
+==============================================
+Reference Ticket: ${ticketId}
+Submission Date: ${submissionDate}
+Status: Active • Assigned to Directors
+
+CLIENT IDENTITY:
+• Full Name: ${clientName}
+• Email: ${clientEmail}
+• Phone / WhatsApp: ${clientPhone || "Not provided"}
+• Channel / Social: ${clientSocial || "Not provided"}
+
+PROJECT SPECIFICATIONS:
+• Service Category: ${activeCategory.name}
+• Selected Package: ${activeSubOption.title}
+• Estimated Turnaround: ${activeSubOption.duration}
+
+PROJECT BRIEF & RAW ASSETS:
+${projectNote || "No extra note provided"}
+
+PRODUCTION DIRECTORS & MANAGEMENT:
+• Animesh Ghosh (Creative & Web Lead): +91 9437238055
+• Biswajit Das (Technical & Gaming Lead): +91 8456982547
+• Sushobhan Pratihari (Program & Client Services Manager): +91 9692276657
+==============================================
+Notification copies routed simultaneously to:
+- techmatrix512@gmail.com
+- pratiharisushobhan@gmail.com
+- ${clientEmail}
+`;
+
+    // Prepare Web3Forms dispatch with CC to Sushobhan and Customer, plus attractive formatting
     const formData = new FormData();
     formData.append("access_key", AGENCY_INFO.web3forms.accessKey);
-    formData.append("subject", `[${ticketId}] New Booking: ${activeSubOption.title} from ${clientName}`);
-    formData.append("from_name", "Glimpz Studio");
-    formData.append("ticket_id", ticketId);
-    formData.append("name", clientName);
-    formData.append("email", clientEmail);
-    formData.append("phone", clientPhone || "Not provided");
-    formData.append("channel", clientSocial || "Not provided");
-    formData.append("category", activeCategory.name);
-    formData.append("package", activeSubOption.title);
-    formData.append("estimated_duration", activeSubOption.duration);
-    formData.append("message", projectNote || "No extra note provided");
+    formData.append("subject", `⚡ [${ticketId}] Confirmed Booking: ${activeSubOption.title} — ${clientName}`);
+    formData.append("from_name", "GLIMPZ STUDIO PRODUCTION");
+    formData.append("ccemail", `pratiharisushobhan@gmail.com; ${clientEmail}`);
+    formData.append("replyto", clientEmail);
+
+    // Clean, formatted keys for elegant tabular Gmail rendering
+    formData.append("Ticket_ID", ticketId);
+    formData.append("Client_Name", clientName);
+    formData.append("Client_Email", clientEmail);
+    formData.append("Phone_WhatsApp", clientPhone || "Not provided");
+    formData.append("Channel_Social", clientSocial || "Not provided");
+    formData.append("Service_Category", activeCategory.name);
+    formData.append("Selected_Package", activeSubOption.title);
+    formData.append("Estimated_Turnaround", activeSubOption.duration);
+    formData.append("Project_Brief_and_Notes", projectNote || "No extra note provided");
+    formData.append("Assigned_Directors", "Animesh Ghosh & Biswajit Das");
+    formData.append("Client_Services_Manager", "Sushobhan Pratihari (+91 9692276657)");
+    formData.append("Submission_Timestamp", submissionDate);
+    formData.append("message", formattedEmailMessage);
 
     try {
       await fetch(AGENCY_INFO.web3forms.endpoint, {
@@ -257,7 +311,7 @@ export default function InteractiveBookingStudio() {
               </div>
 
               {/* Instant WhatsApp Direct Actions */}
-              <div className="p-5 rounded-2xl bg-black/40 border border-white/10 max-w-lg w-full mb-8 text-left space-y-3">
+              <div className="p-5 rounded-2xl bg-black/40 border border-white/10 max-w-lg w-full mb-4 text-left space-y-3">
                 <span className="text-[11px] font-mono uppercase text-slate-400 block">
                   Fast-Track Direct Chat via WhatsApp:
                 </span>
@@ -268,7 +322,7 @@ export default function InteractiveBookingStudio() {
                 >
                   <span className="flex items-center gap-2">
                     <MessageCircle className="w-4 h-4 text-emerald-400" />
-                    Chat with Animesh Ghosh (Cinematic Lead)
+                    Chat with Animesh Ghosh (Creative & Web Lead)
                   </span>
                   <span className="font-mono text-[10px]">+91 9437238055</span>
                 </button>
@@ -283,6 +337,25 @@ export default function InteractiveBookingStudio() {
                   </span>
                   <span className="font-mono text-[10px]">+91 8456982547</span>
                 </button>
+
+                <button
+                  onClick={() => handleWhatsAppSushobhan(activeBooking)}
+                  className="w-full py-3 px-4 rounded-xl text-xs font-bold bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-500 hover:text-black transition-all flex items-center justify-between"
+                >
+                  <span className="flex items-center gap-2">
+                    <MessageCircle className="w-4 h-4 text-emerald-400" />
+                    Chat with Sushobhan Pratihari (Lead Manager)
+                  </span>
+                  <span className="font-mono text-[10px]">+91 9692276657</span>
+                </button>
+              </div>
+
+              {/* Email Delivery Notice */}
+              <div className="flex items-start sm:items-center gap-2 text-[11px] font-mono text-slate-400 bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl mb-8 max-w-lg w-full text-left">
+                <Mail className="w-3.5 h-3.5 text-brand-cyan shrink-0 mt-0.5 sm:mt-0" />
+                <span>
+                  Project brief emailed to <strong className="text-white">{activeBooking.email}</strong>, <strong className="text-white">pratiharisushobhan@gmail.com</strong> &amp; <strong className="text-white">techmatrix512@gmail.com</strong>
+                </span>
               </div>
 
               {/* Action: Book Again / Submit Another Request */}
@@ -387,7 +460,7 @@ export default function InteractiveBookingStudio() {
               </div>
 
               {/* Step 2: Specific Scope & Automated Turnaround Calculation */}
-              <div className="pt-6 border-t border-white/10">
+              <div ref={formatStepRef} className="pt-6 border-t border-white/10 scroll-mt-24">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
                   <span className="text-xs font-mono uppercase text-brand-cyan font-bold tracking-wider flex items-center gap-2">
                     <span className="w-5 h-5 rounded-full bg-brand-cyan/20 flex items-center justify-center text-[10px] text-brand-cyan">2</span>
@@ -541,24 +614,33 @@ export default function InteractiveBookingStudio() {
                   </button>
                 </div>
 
-                {/* Direct Founder WhatsApp Buttons */}
-                <div className="mt-4 pt-4 border-t border-white/5 flex flex-col sm:flex-row gap-3">
+                {/* Direct Team WhatsApp Buttons */}
+                <div className="mt-4 pt-4 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-3">
                   <button
                     type="button"
                     onClick={() => handleWhatsAppAnimesh()}
-                    className="flex-1 py-3 px-4 rounded-xl text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all flex items-center justify-center gap-2"
+                    className="py-3 px-4 rounded-xl text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all flex items-center justify-center gap-2"
                   >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>WhatsApp Animesh (Cinematic Lead): +91 9437238055</span>
+                    <MessageCircle className="w-4 h-4 shrink-0" />
+                    <span>WhatsApp Animesh (Creative Lead): +91 9437238055</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => handleWhatsAppBiswajit()}
-                    className="flex-1 py-3 px-4 rounded-xl text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all flex items-center justify-center gap-2"
+                    className="py-3 px-4 rounded-xl text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all flex items-center justify-center gap-2"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <MessageCircle className="w-4 h-4 shrink-0" />
                     <span>WhatsApp Biswajit (Gaming & Web Lead): +91 8456982547</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleWhatsAppSushobhan()}
+                    className="py-3 px-4 rounded-xl text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle className="w-4 h-4 shrink-0" />
+                    <span>WhatsApp Sushobhan (Lead Manager): +91 9692276657</span>
                   </button>
                 </div>
 

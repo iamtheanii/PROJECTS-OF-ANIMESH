@@ -50,7 +50,7 @@ export const AGENCY_INFO = {
       platforms: ["Custom Web Apps", "Booking Automations", "Instagram Reels", "YouTube Shorts"],
       bio: "Full Stack Web Developer & Creative Director. Architects modern, high-converting web applications, WhatsApp booking automations, and clean UI/UX systems. Combines cutting-edge web engineering with cinematic visual storytelling and aesthetic pacing.",
       skills: ["Full Stack Web Development", "Next.js & React 18", "Tailwind CSS Architecture", "WhatsApp Booking Automations", "Cinematic Pacing & Color Tone", "Conversion UI/UX"],
-      linkedin: "https://www.linkedin.com/in/glimpzstudio"
+      linkedin: "https://www.linkedin.com/in/animeshghosh2005"
     },
     {
       name: "Biswajit Das",
@@ -63,7 +63,7 @@ export const AGENCY_INFO = {
       platforms: ["YouTube Long-Form", "Gaming Shorts", "Instagram Reels"],
       bio: "Master of high-energy, combat-synced gaming edits with velocity ramping, punchy sound design, and impact effects. Also engineers high-performance web development projects.",
       skills: ["High-Octane Gaming VFX", "Velocity Ramping", "Combat Sound Design", "Long-Form Video Pacing", "Full-Stack Web Engineering"],
-      linkedin: "https://www.linkedin.com/in/glimpzstudio"
+      linkedin: "https://www.linkedin.com/in/biswajit-das-bba319390?utm_source=share_via&utm_content=profile&utm_medium=member_android"
     },
     {
       name: "Byanjan Behera",
@@ -77,7 +77,7 @@ export const AGENCY_INFO = {
       platforms: ["Enterprise Web Apps", "REST & GraphQL APIs", "Microservices", "Cloud Deployments"],
       bio: "Specializes in modern full-stack web architectures across JavaScript, Java, and Python ecosystems. Builds high-scale backends and pixel-perfect frontends.",
       skills: ["Next.js", "Spring Boot", "MERN Stack", "Django & FastAPI", "Express.js", "API Systems"],
-      linkedin: "https://byanjanbehera.me/"
+      linkedin: "https://www.linkedin.com/in/byanjan-behera?utm_source=share_via&utm_content=profile&utm_medium=member_android"
     },
     {
       name: "Sushobhan Pratihari",
@@ -90,7 +90,7 @@ export const AGENCY_INFO = {
       platforms: ["Client Success", "Account Growth", "Agile Execution", "Quality Verification"],
       bio: "Directs end-to-end program lifecycles, client services, and cross-functional delivery. Ensures seamless client communication, scope alignment, and timely milestones.",
       skills: ["Program Management", "Client Services", "Project Management", "Stakeholder Relations", "Process Optimization"],
-      linkedin: "https://www.linkedin.com/in/glimpzstudio"
+      linkedin: "https://www.linkedin.com/in/sushobhan-pratihari-a1a047289?utm_source=share_via&utm_content=profile&utm_medium=member_android"
     }
   ]
 };
