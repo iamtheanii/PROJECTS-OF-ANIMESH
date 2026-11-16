@@ -141,68 +141,49 @@ export default function InteractiveBookingStudio() {
       status: 'Active • In Review with Directors'
     };
 
-    // Executive formatted email body for Gmail display
-    const formattedEmailMessage = `
-==============================================
-⚡ GLIMPZ STUDIO • OFFICIAL PROJECT INTAKE ⚡
-==============================================
-Reference Ticket: ${ticketId}
-Submission Date: ${submissionDate}
-Status: Active • Assigned to Directors
-
-CLIENT IDENTITY:
-• Full Name: ${clientName}
+    // Clean formatted summary message for Gmail
+    const summaryMessage = `TICKET: ${ticketId}
+----------------------------------------
+CLIENT DETAILS:
+• Name: ${clientName}
 • Email: ${clientEmail}
-• Phone / WhatsApp: ${clientPhone || "Not provided"}
-• Channel / Social: ${clientSocial || "Not provided"}
+• Phone / WhatsApp: ${clientPhone || 'Not provided'}
+• Channel / Social: ${clientSocial || 'Not provided'}
 
 PROJECT SPECIFICATIONS:
-• Service Category: ${activeCategory.name}
-• Selected Package: ${activeSubOption.title}
+• Category: ${activeCategory.name}
+• Package: ${activeSubOption.title}
 • Estimated Turnaround: ${activeSubOption.duration}
+• Submitted At: ${submissionDate}
 
-PROJECT BRIEF & RAW ASSETS:
-${projectNote || "No extra note provided"}
+PROJECT NOTES & RAW ASSETS:
+${projectNote || 'No extra note provided'}
+----------------------------------------`;
 
-PRODUCTION DIRECTORS & MANAGEMENT:
-• Animesh Ghosh (Creative & Web Lead): +91 9437238055
-• Biswajit Das (Technical & Gaming Lead): +91 8456982547
-• Sushobhan Pratihari (Program & Client Services Manager): +91 9692276657
-==============================================
-Notification copies routed simultaneously to:
-- techmatrix512@gmail.com
-- pratiharisushobhan@gmail.com
-- ${clientEmail}
-`;
-
-    // Prepare Web3Forms dispatch with CC to Sushobhan and Customer, plus attractive formatting
+    // Prepare Web3Forms dispatch strictly to techmatrix512@gmail.com
     const formData = new FormData();
     formData.append("access_key", AGENCY_INFO.web3forms.accessKey);
-    formData.append("subject", `⚡ [${ticketId}] Confirmed Booking: ${activeSubOption.title} — ${clientName}`);
-    formData.append("from_name", "GLIMPZ STUDIO PRODUCTION");
-    formData.append("ccemail", `pratiharisushobhan@gmail.com; ${clientEmail}`);
-    formData.append("replyto", clientEmail);
-
-    // Clean, formatted keys for elegant tabular Gmail rendering
-    formData.append("Ticket_ID", ticketId);
-    formData.append("Client_Name", clientName);
-    formData.append("Client_Email", clientEmail);
-    formData.append("Phone_WhatsApp", clientPhone || "Not provided");
-    formData.append("Channel_Social", clientSocial || "Not provided");
-    formData.append("Service_Category", activeCategory.name);
-    formData.append("Selected_Package", activeSubOption.title);
-    formData.append("Estimated_Turnaround", activeSubOption.duration);
-    formData.append("Project_Brief_and_Notes", projectNote || "No extra note provided");
-    formData.append("Assigned_Directors", "Animesh Ghosh & Biswajit Das");
-    formData.append("Client_Services_Manager", "Sushobhan Pratihari (+91 9692276657)");
-    formData.append("Submission_Timestamp", submissionDate);
-    formData.append("message", formattedEmailMessage);
+    formData.append("subject", `⚡ [${ticketId}] New Project Brief: ${activeSubOption.title} — ${clientName}`);
+    formData.append("from_name", "Glimpz Studio Client Intake");
+    formData.append("name", clientName);
+    formData.append("email", clientEmail);
+    formData.append("phone", clientPhone || "Not provided");
+    formData.append("channel", clientSocial || "Not provided");
+    formData.append("category", activeCategory.name);
+    formData.append("package", activeSubOption.title);
+    formData.append("estimated_duration", activeSubOption.duration);
+    formData.append("ticket_id", ticketId);
+    formData.append("message", summaryMessage);
 
     try {
-      await fetch(AGENCY_INFO.web3forms.endpoint, {
+      const response = await fetch(AGENCY_INFO.web3forms.endpoint, {
         method: "POST",
         body: formData
       });
+      const result = await response.json();
+      if (!result.success) {
+        console.warn("Web3Forms response notice:", result);
+      }
     } catch (err) {
       console.warn("Dispatch Notice:", err);
     } finally {
@@ -354,7 +335,7 @@ Notification copies routed simultaneously to:
               <div className="flex items-start sm:items-center gap-2 text-[11px] font-mono text-slate-400 bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl mb-8 max-w-lg w-full text-left">
                 <Mail className="w-3.5 h-3.5 text-brand-cyan shrink-0 mt-0.5 sm:mt-0" />
                 <span>
-                  Project brief emailed to <strong className="text-white">{activeBooking.email}</strong>, <strong className="text-white">pratiharisushobhan@gmail.com</strong> &amp; <strong className="text-white">techmatrix512@gmail.com</strong>
+                  Project brief successfully transmitted to <strong className="text-white">techmatrix512@gmail.com</strong>
                 </span>
               </div>
 
