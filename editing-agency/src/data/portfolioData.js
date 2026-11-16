@@ -16,6 +16,12 @@ export const AGENCY_INFO = {
       phone: "+91 8456982547",
       whatsapp: "https://wa.me/918456982547?text=Hi%20Biswajit%2C%20I'd%20like%20to%20discuss%20a%20Glimpz%20Studio%20project!"
     },
+    manager: {
+      name: "Sushobhan Pratihari",
+      role: "Program & Client Services Manager",
+      phone: "+91 9692276657",
+      whatsapp: "https://wa.me/919692276657?text=Hi%20Sushobhan%2C%20I'd%20like%20to%20discuss%20a%20Glimpz%20Studio%20project!"
+    },
     email: "techmatrix512@gmail.com",
     linkedin: "https://www.linkedin.com/in/glimpzstudio",
     youtube: "https://youtube.com/@sy1ko-kun",
@@ -35,15 +41,15 @@ export const AGENCY_INFO = {
   founders: [
     {
       name: "Animesh Ghosh",
-      role: "Founder & Creative Lead",
-      badge: "PASS #01 // CREATIVE DIRECTION",
+      role: "Founder & Creative Lead • Full Stack Web Developer",
+      badge: "PASS #01 // FOUNDER • FULL STACK & CREATIVE",
       phone: "+91 9437238055",
       whatsapp: "https://wa.me/919437238055",
-      specialization: "Cinematic Smooth Transitions & Cuts",
-      tools: ["CapCut", "VN Video Editor", "Aesthetic Color Tone", "Slow-Motion Curves"],
-      platforms: ["Instagram Reels", "YouTube Shorts", "Facebook Video"],
-      bio: "Crafts cinematic, smooth slow-motion edits with clean transitions and pure aesthetic vibe using CapCut and VN. Specializes in emotion-driven pacing without unnecessary clutter.",
-      skills: ["Cinematic Slow-Motion", "Smooth Transition Cuts", "CapCut & VN Mastering", "Vibe Pacing", "Reels & Shorts Optimization"],
+      specialization: "Full Stack Web Engineering, Automated Systems & Cinematic Visuals",
+      tools: ["Next.js", "React 18", "Tailwind CSS", "Node.js", "CapCut & VN", "WhatsApp API", "UI/UX Architecture"],
+      platforms: ["Custom Web Apps", "Booking Automations", "Instagram Reels", "YouTube Shorts"],
+      bio: "Full Stack Web Developer & Creative Director. Architects modern, high-converting web applications, WhatsApp booking automations, and clean UI/UX systems. Combines cutting-edge web engineering with cinematic visual storytelling and aesthetic pacing.",
+      skills: ["Full Stack Web Development", "Next.js & React 18", "Tailwind CSS Architecture", "WhatsApp Booking Automations", "Cinematic Pacing & Color Tone", "Conversion UI/UX"],
       linkedin: "https://www.linkedin.com/in/glimpzstudio"
     },
     {
@@ -84,19 +90,6 @@ export const AGENCY_INFO = {
       platforms: ["Client Success", "Account Growth", "Agile Execution", "Quality Verification"],
       bio: "Directs end-to-end program lifecycles, client services, and cross-functional delivery. Ensures seamless client communication, scope alignment, and timely milestones.",
       skills: ["Program Management", "Client Services", "Project Management", "Stakeholder Relations", "Process Optimization"],
-      linkedin: "https://www.linkedin.com/in/glimpzstudio"
-    },
-    {
-      name: "Shreya Ghosh",
-      role: "Team Member (Sales & Client Relations)",
-      badge: "PASS #05 // SALES & OUTREACH",
-      phone: "+91 8250921545",
-      whatsapp: "https://wa.me/918250921545",
-      specialization: "Sales Executive, Client Acquisition & Telecalling",
-      tools: ["Sales Executive", "Sales Representative", "Telemarketer", "Telecaller", "Client Onboarding"],
-      platforms: ["Client Consultations", "Direct Outreach", "Relationship Management", "Deal Closures"],
-      bio: "Drives prospective client outreach, project discovery consultations, and account management. Connects businesses with the exact web and visual solutions they need to grow.",
-      skills: ["Sales Executive", "Sales Representative", "Telemarketing", "Telecalling", "Client Success"],
       linkedin: "https://www.linkedin.com/in/glimpzstudio"
     }
   ]

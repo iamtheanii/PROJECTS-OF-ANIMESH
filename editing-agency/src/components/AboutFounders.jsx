@@ -80,10 +80,10 @@ export default function AboutFounders() {
   };
 
   const getRoleIcon = (role) => {
+    if (role.includes('Web Developer') && role.includes('Creative')) return <Sparkles className="w-3.5 h-3.5 text-sky-400" />;
     if (role.includes('Creative')) return <Film className="w-3.5 h-3.5" />;
     if (role.includes('Technical')) return <Flame className="w-3.5 h-3.5" />;
     if (role.includes('Web Developer')) return <Code2 className="w-3.5 h-3.5" />;
-    if (role.includes('Sales') || role.includes('Relations')) return <Sparkles className="w-3.5 h-3.5 text-rose-400" />;
     return <Briefcase className="w-3.5 h-3.5" />;
   };
 

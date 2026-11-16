@@ -15,7 +15,6 @@ import {
   Eye,
   Play,
   Smartphone,
-  UtensilsCrossed,
   Scissors,
   UserCheck
 } from 'lucide-react';
@@ -64,28 +63,6 @@ const LIVE_SHOWCASES = [
       'Dynamic resume downloads and GitHub integration',
       'Instant direct contact routing and social hubs'
     ]
-  },
-  {
-    id: 'restaurant',
-    category: 'Restaurant & Café Suite',
-    title: 'Glimpz Dining & Cafe Suite — Digital Menu & Ordering',
-    tagline: 'QR Digital Menu • Table Reservations • Zero-Commission Takeaway',
-    image: '/abdulnai-landing.jpg', // Uses salon as visual foundation with restaurant specs
-    liveUrl: '#booking',
-    icon: UtensilsCrossed,
-    accent: '#38BDF8',
-    stats: [
-      { label: 'Commission Saved', val: '25-30%' },
-      { label: 'Order Method', val: '1-Click WhatsApp' },
-      { label: 'Table Booking', val: 'Zero Conflict' },
-      { label: 'Menu Updates', val: 'Instant' }
-    ],
-    features: [
-      'Interactive categorized food menu with photos & prices',
-      'Direct WhatsApp checkout saving 25-30% food aggregator fees',
-      'Live table reservation form routing directly to manager phone',
-      'Google Maps local SEO integration to rank #1 in local city'
-    ]
   }
 ];
 
@@ -115,14 +92,14 @@ export default function WebDevCapabilities() {
             Web Development That Actually Ships
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-            From luxury salon platforms and digital dining menus to high-impact developer portfolios. We build fast, high-converting web applications with automated booking engines and zero monthly retainers.
+            From luxury salon booking platforms to high-impact developer and AI builder portfolios. We build fast, high-converting web applications with automated booking engines and zero monthly retainers.
           </p>
         </div>
 
-        {/* 🌟 SHOWCASE SWITCHER: SALON, PORTFOLIO & RESTAURANT WORKINGS 🌟 */}
+        {/* 🌟 SHOWCASE SWITCHER: SALON & PORTFOLIO WORKINGS 🌟 */}
         <div className="max-w-5xl mx-auto mb-16">
-          {/* Category Tabs */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 p-1.5 rounded-2xl bg-black/60 border border-white/10 backdrop-blur-xl mb-6 max-w-md mx-auto">
+          {/* Category Tabs: Salon / Spa & Portfolio */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 p-1.5 rounded-2xl bg-black/60 border border-white/10 backdrop-blur-xl mb-6 max-w-xs mx-auto">
             {LIVE_SHOWCASES.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
@@ -137,7 +114,7 @@ export default function WebDevCapabilities() {
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5 shrink-0" />
-                  <span>{item.id === 'salon' ? 'Salon / Spa' : item.id === 'portfolio' ? 'Portfolio' : 'Restaurant'}</span>
+                  <span>{item.id === 'salon' ? 'Salon / Spa' : 'Portfolio'}</span>
                 </button>
               );
             })}
@@ -172,36 +149,26 @@ export default function WebDevCapabilities() {
                 </div>
 
                 <div className="flex items-center gap-3 w-full sm:w-auto shrink-0">
-                  {currentShowcase.liveUrl.startsWith('http') ? (
-                    <a
-                      href={currentShowcase.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-display font-bold text-xs shadow-lg transition-all"
-                    >
-                      <Globe className="w-3.5 h-3.5" />
-                      <span>Visit Live Website</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-                  ) : (
-                    <a
-                      href="#booking"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-brand-cyan hover:bg-cyan-300 text-black font-display font-bold text-xs shadow-lg transition-all"
-                    >
-                      <span>Inquire Restaurant System</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </a>
-                  )}
+                  <a
+                    href={currentShowcase.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-display font-bold text-xs shadow-lg transition-all"
+                  >
+                    <Globe className="w-3.5 h-3.5" />
+                    <span>Visit Live Website</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
 
-              {/* Interactive Front Landing Page Visual Browser Mockup */}
+              {/* Interactive Front Landing Page Visual Browser Mockup (Enhanced High-Fidelity) */}
               <a
                 href={currentShowcase.liveUrl}
-                target={currentShowcase.liveUrl.startsWith('http') ? '_blank' : '_self'}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="group block relative rounded-2xl overflow-hidden border border-white/15 bg-black hover:border-amber-400/60 transition-all duration-500 shadow-2xl mb-6"
-                title="Click to view live website"
+                title="Click to view live website in new tab"
               >
                 {/* Simulated macOS / Chrome Browser Bar */}
                 <div className="bg-[#14161f] px-4 py-2.5 flex items-center justify-between border-b border-white/10">
@@ -213,7 +180,7 @@ export default function WebDevCapabilities() {
 
                   <div className="flex items-center gap-2 px-4 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-mono text-slate-300 group-hover:text-amber-300 transition-colors">
                     <Lock className="w-3 h-3 text-emerald-400" />
-                    <span>{currentShowcase.liveUrl.startsWith('http') ? currentShowcase.liveUrl : 'https://glimpzstudioindia.vercel.app/restaurant'}</span>
+                    <span>{currentShowcase.liveUrl}</span>
                   </div>
 
                   <div className="text-[10px] font-mono text-slate-400 flex items-center gap-1 group-hover:text-white">
@@ -222,12 +189,15 @@ export default function WebDevCapabilities() {
                   </div>
                 </div>
 
-                {/* Front Landing Page Screenshot */}
+                {/* Enhanced Front Landing Page Screenshot */}
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#08090C]">
                   <img
                     src={currentShowcase.image}
                     alt={currentShowcase.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                    loading="eager"
+                    decoding="async"
+                    style={{ imageRendering: '-webkit-optimize-contrast', transform: 'translateZ(0)' }}
+                    className="w-full h-full object-cover object-top filter contrast-[1.03] brightness-[1.01] transition-transform duration-700 group-hover:scale-[1.01]"
                   />
                   
                   {/* Subtle Gradient Hover Overlay */}
@@ -320,17 +290,20 @@ export default function WebDevCapabilities() {
             </button>
           </div>
 
-          {/* Video Player Display Card */}
+          {/* Autonomous Looping Video Showcase (GIF-style with Zero Browser Controls) */}
           <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-black shadow-2xl p-2 sm:p-4 bg-gradient-to-b from-[#12141c] to-[#08090c]">
-            <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black flex items-center justify-center">
+            <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black flex items-center justify-center select-none">
               <video
                 key={activeVideoTab}
-                controls
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-contain"
+                disablePictureInPicture
+                disableRemotePlayback
+                controlsList="nodownload nofullscreen noremoteplayback"
+                onContextMenu={(e) => e.preventDefault()}
+                className="w-full h-full object-contain pointer-events-none select-none"
               >
                 <source
                   src={activeVideoTab === 1 ? '/videos/web-demo-1.mp4' : '/videos/web-demo-2.mp4'}
@@ -338,11 +311,18 @@ export default function WebDevCapabilities() {
                 />
                 Your browser does not support the video tag.
               </video>
+              
+              {/* Invisible gesture shield - completely blocks click, pause, context-menu, and pip */}
+              <div 
+                className="absolute inset-0 bg-transparent cursor-default pointer-events-auto"
+                onContextMenu={(e) => e.preventDefault()}
+                onClick={(e) => e.preventDefault()}
+              />
             </div>
-            <div className="flex items-center justify-between pt-3 px-2 text-xs font-mono text-slate-400">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-3 px-2 gap-2 text-xs font-mono text-slate-400">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Captured Live Screen Recording • Glimpz Production Standard</span>
+                <span>Autonomous Continuous Preview • Uninterrupted Full-Length Loop</span>
               </span>
               <a
                 href="#booking"

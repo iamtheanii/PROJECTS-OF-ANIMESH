@@ -67,7 +67,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Direct Founders Contact */}
+          {/* Direct Founders & Management Contact */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold">
               Direct Contact Lines
@@ -91,6 +91,16 @@ export default function Footer() {
               >
                 <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Biswajit Das: <strong>+91 8456982547</strong></span>
+              </a>
+
+              <a
+                href={AGENCY_INFO.contacts.manager?.whatsapp || "https://wa.me/919692276657?text=Hi%20Sushobhan%2C%20I'd%20like%20to%20discuss%20a%20Glimpz%20Studio%20project!"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-slate-300 hover:text-emerald-400 transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Sushobhan Pratihari: <strong>+91 9692276657</strong></span>
               </a>
 
               <p className="flex items-center gap-2 text-slate-400">
