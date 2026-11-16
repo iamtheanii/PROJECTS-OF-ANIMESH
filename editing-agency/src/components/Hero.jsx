@@ -122,8 +122,8 @@ export default function Hero({ onOpenShowreel }) {
             <a href="#web-dev" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
               Web Dev
             </a>
-            <a href="#founders" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
-              Founders
+            <a href="#about" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
+              About
             </a>
             <a href="#booking" className="px-3.5 py-1 text-xs font-medium text-slate-300 hover:text-white transition-colors">
               Contact

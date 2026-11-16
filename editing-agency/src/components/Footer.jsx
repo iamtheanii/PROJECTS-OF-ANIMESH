@@ -62,7 +62,7 @@ export default function Footer() {
               <li><a href="#grade-compare" className="hover:text-brand-cyan transition-colors">Color Grading Suite</a></li>
               <li><a href="#web-dev" className="hover:text-brand-cyan transition-colors">Web Development</a></li>
               <li><a href="#process" className="hover:text-brand-cyan transition-colors">Production Process</a></li>
-              <li><a href="#founders" className="hover:text-brand-cyan transition-colors">About Animesh & Biswajit</a></li>
+              <li><a href="#about" className="hover:text-brand-cyan transition-colors">About Our Team</a></li>
               <li><a href="#booking" className="hover:text-brand-cyan transition-colors">Interactive Booking</a></li>
             </ul>
           </div>

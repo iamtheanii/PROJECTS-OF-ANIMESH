@@ -372,10 +372,10 @@ export default function InteractiveBookingStudio() {
                         <Code className="w-5 h-5" />
                       </div>
                       <h4 className="font-hero text-base font-bold text-white mb-1">
-                        Modern Website Development
+                        Business Website Development
                       </h4>
                       <p className="text-xs text-slate-400 leading-relaxed mb-3">
-                        Portfolios, launch pages, corporate sites & interactive booking systems.
+                        Restaurants, clinics, salons, coaching, hotels, bakeries & gym platforms.
                       </p>
                     </div>
                     <span className="text-[11px] font-mono text-purple-400 pt-2 border-t border-white/5">

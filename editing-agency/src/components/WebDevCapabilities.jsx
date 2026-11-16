@@ -13,7 +13,8 @@ import {
   Terminal,
   Zap,
   ShieldCheck,
-  Globe
+  Globe,
+  Eye
 } from 'lucide-react';
 
 export default function WebDevCapabilities() {
@@ -41,71 +42,122 @@ export default function WebDevCapabilities() {
           </p>
         </div>
 
-        {/* 🌟 LIVE CLIENT REFERENCE: abdulnai.vercel.app (CLEAN, NO OVERLOAD) 🌟 */}
+        {/* 🌟 LIVE CLIENT REFERENCE: abdulnai.vercel.app WITH FRONT LANDING PAGE SHOWCASE 🌟 */}
         <div className="max-w-5xl mx-auto mb-16">
-          <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-amber-500/30 via-white/10 to-brand-cyan/30">
-            <div className="rounded-[15px] bg-[#0c0d12] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="relative rounded-3xl p-[1px] bg-gradient-to-r from-amber-500/40 via-white/15 to-brand-cyan/40 shadow-[0_15px_50px_rgba(245,158,11,0.08)]">
+            <div className="rounded-[23px] bg-[#0c0d12] p-5 sm:p-8 overflow-hidden">
               
-              {/* Left Info: Simple client reference */}
-              <div className="space-y-3 max-w-xl text-left">
-                <div className="flex items-center gap-2.5">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                  </span>
-                  <span className="font-mono text-[11px] font-bold text-emerald-400 uppercase tracking-wider">
-                    Live Client Reference
-                  </span>
-                  <span className="text-white/20">•</span>
-                  <span className="font-mono text-[11px] text-slate-400">
-                    Full-Stack Booking Platform
-                  </span>
+              {/* Top Meta Bar */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-white/10 mb-6">
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                    </span>
+                    <span className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                      Live Client Platform Reference
+                    </span>
+                    <span className="text-white/20">•</span>
+                    <span className="font-mono text-xs text-amber-300">
+                      Haute Coiffure & Luxury Grooming
+                    </span>
+                  </div>
+                  <h3 className="font-display text-xl sm:text-3xl font-extrabold text-white">
+                    ABDUL NAI — Luxury Unisex Salon & Spa Platform
+                  </h3>
                 </div>
 
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                  <span>Abdul Nai — Haute Coiffure & Luxury Grooming</span>
-                </h3>
-
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                  A high-end salon web platform engineered by Glimpz Studio with online appointment booking, digital service menu, and automated customer sync.
-                </p>
-
-                {/* Minimalist Tech Badges */}
-                <div className="flex flex-wrap items-center gap-2 pt-1">
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
-                    Next.js 14
-                  </span>
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
-                    Online Appointments
-                  </span>
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
-                    Razorpay Gateway
-                  </span>
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
-                    WhatsApp Automation
-                  </span>
+                <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <a
+                    href="https://abdulnai.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-display font-bold text-xs shadow-lg transition-all"
+                  >
+                    <Globe className="w-3.5 h-3.5" />
+                    <span>Launch abdulnai.vercel.app</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
 
-              {/* Right Action: Clean Reference CTA Pill */}
-              <div className="flex flex-col sm:flex-row md:flex-col items-center gap-3 shrink-0 w-full md:w-auto">
-                <a
-                  href="https://abdulnai.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-black font-display font-bold text-xs hover:bg-brand-cyan transition-all shadow-glow-card"
-                >
-                  <Globe className="w-3.5 h-3.5" />
-                  <span>Visit abdulnai.vercel.app</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
+              {/* Interactive Front Landing Page Visual Browser Mockup (Exact match to uploaded screenshot) */}
+              <a
+                href="https://abdulnai.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block relative rounded-2xl overflow-hidden border border-white/15 bg-black hover:border-amber-400/60 transition-all duration-500 shadow-2xl"
+                title="Click to view live abdulnai.vercel.app website"
+              >
+                {/* Simulated macOS / Chrome Browser Bar */}
+                <div className="bg-[#14161f] px-4 py-2.5 flex items-center justify-between border-b border-white/10">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+                  </div>
+
+                  <div className="flex items-center gap-2 px-4 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-mono text-slate-300 group-hover:text-amber-300 transition-colors">
+                    <Lock className="w-3 h-3 text-emerald-400" />
+                    <span>https://abdulnai.vercel.app</span>
+                  </div>
+
+                  <div className="text-[10px] font-mono text-slate-400 flex items-center gap-1 group-hover:text-white">
+                    <Eye className="w-3 h-3 text-amber-400" />
+                    <span className="hidden sm:inline">Click to preview live</span>
+                  </div>
+                </div>
+
+                {/* Actual Front Landing Page Screenshot */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#08090C]">
+                  <img
+                    src="/abdulnai-landing.jpg"
+                    alt="Abdul Nai Luxury Salon Front Landing Page Preview"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                  
+                  {/* Subtle Gradient Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 justify-between">
+                    <div>
+                      <span className="font-mono text-xs text-amber-400 font-bold uppercase tracking-wider block">
+                        Live Production Deployment
+                      </span>
+                      <span className="font-display text-lg font-bold text-white">
+                        Click anywhere to open live interactive website
+                      </span>
+                    </div>
+                    <span className="px-4 py-2 rounded-full bg-white text-black font-display font-bold text-xs flex items-center gap-1.5 shadow-xl">
+                      <span>Explore Live</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </div>
+              </a>
+
+              {/* Bottom Feature Badges */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-5 mt-2 border-t border-white/5 text-xs text-slate-400">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
+                    Next.js 14 App Router
+                  </span>
+                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
+                    Real-time Appointment Slot Picker
+                  </span>
+                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
+                    Razorpay Gateway (UPI/Cards)
+                  </span>
+                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
+                    Automated WhatsApp Confirmations
+                  </span>
+                </div>
 
                 <a
                   href="#booking"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full border border-white/10 hover:border-white/30 text-xs font-medium text-slate-300 hover:text-white transition-all text-center"
+                  className="inline-flex items-center gap-1.5 text-brand-cyan hover:text-white font-semibold text-xs transition-colors"
                 >
-                  <span>Build Similar Website</span>
-                  <ArrowRight className="w-3 h-3 text-brand-cyan" />
+                  <span>Request Similar Custom Platform</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
 
@@ -113,7 +165,7 @@ export default function WebDevCapabilities() {
           </div>
         </div>
 
-        {/* 🛠️ DISTINCT INTERACTIVE BLUEPRINT CONSOLE (NOT GENERIC CARDS!) 🛠️ */}
+        {/* 🛠️ DISTINCT INTERACTIVE BLUEPRINT CONSOLE 🛠️ */}
         <div className="max-w-5xl mx-auto">
           <div className="text-left mb-4">
             <span className="font-mono text-xs uppercase tracking-wider text-slate-500">

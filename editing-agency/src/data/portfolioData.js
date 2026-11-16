@@ -36,6 +36,7 @@ export const AGENCY_INFO = {
     {
       name: "Animesh Ghosh",
       role: "Founder & Creative Lead",
+      badge: "PASS #01 // CREATIVE DIRECTION",
       phone: "+91 9437238055",
       whatsapp: "https://wa.me/919437238055",
       specialization: "Cinematic Smooth Transitions & Cuts",
@@ -48,6 +49,7 @@ export const AGENCY_INFO = {
     {
       name: "Biswajit Das",
       role: "Co-Founder & Technical Lead",
+      badge: "PASS #02 // TECHNICAL DIRECTION",
       phone: "+91 8456982547",
       whatsapp: "https://wa.me/918456982547",
       specialization: "Pure Gaming, High-Octane Transitions & VFX",
@@ -55,6 +57,33 @@ export const AGENCY_INFO = {
       platforms: ["YouTube Long-Form", "Gaming Shorts", "Instagram Reels"],
       bio: "Master of high-energy, combat-synced gaming edits with velocity ramping, punchy sound design, and impact effects. Also engineers high-performance web development projects.",
       skills: ["High-Octane Gaming VFX", "Velocity Ramping", "Combat Sound Design", "Long-Form Video Pacing", "Full-Stack Web Engineering"],
+      linkedin: "https://www.linkedin.com/in/glimpzstudio"
+    },
+    {
+      name: "Byanjan Behera",
+      role: "Team Member (Full Stack Web Developer)",
+      badge: "PASS #03 // FULL STACK ENGINEERING",
+      phone: "+91 8456982547",
+      whatsapp: "https://wa.me/918456982547",
+      portfolio: "https://byanjanbehera.me/",
+      specialization: "Full Stack & Multi-Framework Web Engineering",
+      tools: ["Next.js", "Spring Boot", "MERN", "Django", "FastAPI", "Express.js"],
+      platforms: ["Enterprise Web Apps", "REST & GraphQL APIs", "Microservices", "Cloud Deployments"],
+      bio: "Specializes in modern full-stack web architectures across JavaScript, Java, and Python ecosystems. Builds high-scale backends and pixel-perfect frontends.",
+      skills: ["Next.js", "Spring Boot", "MERN Stack", "Django & FastAPI", "Express.js", "API Systems"],
+      linkedin: "https://byanjanbehera.me/"
+    },
+    {
+      name: "Sushobhan Pratihari",
+      role: "Team Member (Lead Manager)",
+      badge: "PASS #04 // CLIENT & PROGRAM OPERATIONS",
+      phone: "+91 9437238055",
+      whatsapp: "https://wa.me/919437238055",
+      specialization: "Program, Client Services & Project Management",
+      tools: ["Program Manager", "Client Services Manager", "Project Manager", "Delivery Roadmaps"],
+      platforms: ["Client Success", "Account Growth", "Agile Execution", "Quality Verification"],
+      bio: "Directs end-to-end program lifecycles, client services, and cross-functional delivery. Ensures seamless client communication, scope alignment, and timely milestones.",
+      skills: ["Program Management", "Client Services", "Project Management", "Stakeholder Relations", "Process Optimization"],
       linkedin: "https://www.linkedin.com/in/glimpzstudio"
     }
   ]
@@ -107,41 +136,73 @@ export const PROJECT_CLASSIFICATIONS = [
   {
     id: "web-development",
     category: "web",
-    name: "Modern Website Development",
-    tagline: "Clean, ultra-fast websites built with React, Next.js, and mobile-first design",
+    name: "Business Website Development",
+    tagline: "Custom high-speed web platforms tailored for specific business categories",
     leadEditor: "Engineered by Glimpz Studio Tech Lab",
     options: [
       {
-        id: "web-portfolio",
-        title: "Creator / Agency Portfolio Website",
-        description: "Showcase your work, video embeds, custom dark-mode aesthetics, and instant contact buttons.",
-        duration: "1 – 2 Days",
-        durationBadge: "1 – 2 Days",
-        recommendedFor: "Creators, Freelancers, Artists"
-      },
-      {
-        id: "web-event",
-        title: "Event & Launch Landing Page",
-        description: "High-converting single-page experience tailored for product drops, tournaments, or campaigns.",
+        id: "web-restaurants-cafes",
+        title: "Restaurants & Cafés",
+        description: "Interactive digital menus, table reservation engine, online food ordering, and 1-click WhatsApp order routing.",
         duration: "2 – 3 Days",
         durationBadge: "2 – 3 Days",
-        recommendedFor: "Brand Launches, Tournaments, Live Events"
+        recommendedFor: "Cafés, Dine-in Restaurants, Restrobars & Cloud Kitchens"
       },
       {
-        id: "web-business",
-        title: "Business & Corporate Website",
-        description: "Multi-section commercial website with service showcases, lead forms, and Google SEO optimization.",
+        id: "web-clinics-dental",
+        title: "Clinics & Dental",
+        description: "Doctor profiles, specialized treatments, patient appointment calendar, and online consultation inquiries.",
         duration: "3 – 4 Days",
         durationBadge: "3 – 4 Days",
-        recommendedFor: "Agencies, Startups, Local Businesses"
+        recommendedFor: "Dental Clinics, Multi-Specialty Clinics & Doctors"
       },
       {
-        id: "web-booking",
-        title: "Booking & Membership Platform",
-        description: "Full interactive client booking, user intake forms, custom calendars, and automated email/WhatsApp routing.",
+        id: "web-salons-spas",
+        title: "Salons & Spas",
+        description: "Curated service menu, slot selection, staff assignments, advance payments, and automated WhatsApp confirmations.",
+        duration: "3 – 4 Days",
+        durationBadge: "3 – 4 Days",
+        recommendedFor: "Luxury Salons, Grooming Ateliers, Spas & Beauty Studios"
+      },
+      {
+        id: "web-coaching-institutes",
+        title: "Coaching Institutes",
+        description: "Course and batch details, student online applications, fee payments, result showcases, and study portals.",
+        duration: "3 – 4 Days",
+        durationBadge: "3 – 4 Days",
+        recommendedFor: "Coaching Academies, Competitive Exam Centers & Tutors"
+      },
+      {
+        id: "web-event-planners",
+        title: "Event Planners",
+        description: "Visual event portfolio gallery, custom quotation requests, package tiers, and live event date availability checker.",
+        duration: "2 – 3 Days",
+        durationBadge: "2 – 3 Days",
+        recommendedFor: "Wedding Planners, Corporate Event Producers & Decorators"
+      },
+      {
+        id: "web-hotels-resorts",
+        title: "Hotels & Resorts",
+        description: "Room availability calendar, direct guest booking engine, amenities showcase, and cancellation management.",
         duration: "1 – 2 Weeks",
         durationBadge: "1 – 2 Weeks",
-        recommendedFor: "Coaches, Studios, Service Businesses"
+        recommendedFor: "Resorts, Boutique Hotels, Homestays & Heritage Stays"
+      },
+      {
+        id: "web-bakeries-cakes",
+        title: "Bakeries & Cake Shops",
+        description: "Artisan cake catalogue, custom cake customization forms, pickup/delivery date selector, and advance payment.",
+        duration: "2 – 3 Days",
+        durationBadge: "2 – 3 Days",
+        recommendedFor: "Bakeries, Patisseries, Cake Designers & Dessert Shops"
+      },
+      {
+        id: "web-gyms-fitness",
+        title: "Gyms & Fitness",
+        description: "Membership plan displays, online membership registration, trial session booking, and personal trainer profiles.",
+        duration: "2 – 3 Days",
+        durationBadge: "2 – 3 Days",
+        recommendedFor: "Gyms, Crossfit Boxes, Yoga Studios & Fitness Trainers"
       }
     ]
   }
